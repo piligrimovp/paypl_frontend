@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let goods = [];
+    for (let i=0; i < 10; i++) {
+        goods.push(<div className="goods-small" key={i}>
+            <img src={'https://www.colorbook.io/imagecreator.php?width=5'+ i +'&height=55'} alt="" className="goods-small_image"/>
+            <div className="goods-small_info">
+                <span className="medium-label">Название товара asdasdas asdasd asdasd asdasd asdasd</span>
+                <span className="medium-label">{i * 10000}, руб.</span>
+            </div>
+        </div>);
+    }
+  return goods;
 }
 
 export default App;

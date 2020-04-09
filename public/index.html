@@ -1,43 +1,377 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/babel" src="../src/index.js"></script>
+  <title>Главная</title>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img class="logo_img" src="media/pp258.png" alt="PayPlay">
+        </div>
+        <nav class="header_menu">
+            <div class="header_menu_name large-label menu-item">
+                Каталог
+                <div class="arrow arrow-down">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.8766 7.33749C15.1207 7.58163 15.1207 7.97734 14.8766 8.22148L10.4355 12.6625C10.3184
+                    12.7797 10.159 12.8457 9.99296 12.8457C9.82695 12.8457 9.66796 12.7793 9.55078 12.6621L5.12265
+                    8.22109C5.00117 8.09921 4.94023 7.93945 4.94023 7.77968C4.94023 7.61953 5.00156 7.45898 5.12382
+                    7.3371C5.36835 7.09335 5.76406 7.09413 6.00781 7.33827L9.99413 11.3359L13.9926 7.33749C14.2367
+                    7.09335 14.6324 7.09335 14.8766 7.33749Z" fill="#1C1C28"/>
+                    </svg>
+                </div>
+                <div class="menu">
+                    <div class="menu-item large-label">Item 1 asdasdasdasdasdasdasd</div>
+                    <div class="large-label menu-item">Item 2 asdasdasdasdasdasdasd
+                        <div class="arrow arrow-right">
+                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <g class="layer">
+                                    <title>Layer 1</title>
+                                    <path d="m14.8766,7.33749c0.2441,0.24414 0.2441,0.63985
+                                0,0.88399l-4.4411,4.44102c-0.1171,0.1172 -0.2765,0.1832 -0.44254,0.1832c-0.16601,0
+                                -0.325,-0.0664 -0.44218,-0.1836l-4.42813,-4.44101c-0.12148,-0.12188 -0.18242,-0.28164
+                                -0.18242,-0.44141c0,-0.16015 0.06133,-0.3207 0.18359,-0.44258c0.24453,-0.24375
+                                0.64024,-0.24297 0.88399,0.00117l3.98632,3.99763l3.99847,-3.99841c0.2441,-0.24414
+                                0.6398,-0.24414 0.884,0z" fill="#1C1C28" id="svg_1"
+                                          transform="rotate(-90.7693 9.99995 10)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-item large-label">Item 2.2
+                                <div class="arrow arrow-right">
+                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="layer">
+                                            <title>Layer 1</title>
+                                            <path d="m14.8766,7.33749c0.2441,0.24414 0.2441,0.63985
+                                0,0.88399l-4.4411,4.44102c-0.1171,0.1172 -0.2765,0.1832 -0.44254,0.1832c-0.16601,0
+                                -0.325,-0.0664 -0.44218,-0.1836l-4.42813,-4.44101c-0.12148,-0.12188 -0.18242,-0.28164
+                                -0.18242,-0.44141c0,-0.16015 0.06133,-0.3207 0.18359,-0.44258c0.24453,-0.24375
+                                0.64024,-0.24297 0.88399,0.00117l3.98632,3.99763l3.99847,-3.99841c0.2441,-0.24414
+                                0.6398,-0.24414 0.884,0z" fill="#1C1C28" id="svg_1"
+                                                  transform="rotate(-90.7693 9.99995 10)"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="menu">
+                                    <div class="menu-item large-label">Item 2.3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item large-label">Item 3
+                        <div class="arrow arrow-right">
+                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <g class="layer">
+                                    <title>Layer 1</title>
+                                    <path d="m14.8766,7.33749c0.2441,0.24414 0.2441,0.63985
+                                0,0.88399l-4.4411,4.44102c-0.1171,0.1172 -0.2765,0.1832 -0.44254,0.1832c-0.16601,0
+                                -0.325,-0.0664 -0.44218,-0.1836l-4.42813,-4.44101c-0.12148,-0.12188 -0.18242,-0.28164
+                                -0.18242,-0.44141c0,-0.16015 0.06133,-0.3207 0.18359,-0.44258c0.24453,-0.24375
+                                0.64024,-0.24297 0.88399,0.00117l3.98632,3.99763l3.99847,-3.99841c0.2441,-0.24414
+                                0.6398,-0.24414 0.884,0z" fill="#1C1C28" id="svg_1"
+                                          transform="rotate(-90.7693 9.99995 10)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-item large-label">Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="search">
+            <input type="search" placeholder="Введите название продукта" class="input_search large-label" id="search">
+            <button class="btn btn-orange btn_search" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                     class="btn-search_icon">
+                    <path d="M17.1788 14.6784L15.6703 13.1705C15.6942 13.1316 15.7172 13.0917 15.7402 13.0523C16.365
+                11.9719 16.7231 10.718 16.7231 9.38062C16.7231 5.32594 13.4353 2.03906 9.38062 2.03906C5.32594 2.03906
+                2.03906 5.32594 2.03906 9.38062C2.03906 13.4353 5.32594 16.7231 9.38062 16.7231C10.718 16.7231 11.9719
+                16.365 13.0523 15.7402C13.0917 15.7172 13.1316 15.6942 13.1705 15.6703L14.6789 17.1788L17.1788
+                14.6784ZM10.6088 13.297C10.2206 13.4189 9.80859 13.4841 9.38062 13.4841C7.11516 13.4841 5.27766 11.647
+                5.27766 9.38062C5.27766 7.11516 7.11516 5.27766 9.38062 5.27766C11.647 5.27766 13.4841 7.11516 13.4841
+                9.38062C13.4841 9.80859 13.4189 10.2206 13.297 10.6088C12.8967 11.8875 11.8875 12.8967 10.6088 13.297Z"
+                          fill="#1C1C28"/>
+                    <path d="M21.4434 18.9431L18.2395 15.7392L15.7397 18.2395L18.9431 21.4429C19.6331 22.1334 20.753
+                22.1334 21.4434 21.4434C22.1334 20.7529 22.1334 19.6331 21.4434 18.9431Z" fill="#1C1C28"/>
+                </svg>
+            </button>
+        </div>
+        <div class="info-icons">
+            <div class="info-icons_icon">
+                <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.74829 20.6021C9.34212 22.9004 12.0395 25.149 14.7655 27.2866C15.0245 27.4898 15.2596
+                27.6684 15.5166 27.7999C15.6686 27.8776 15.834 27.9161 16 27.9161C16.166 27.9161 16.3314 27.8776
+                16.4834 27.7999C16.7404 27.6684 16.9755 27.4898 17.2345 27.2866C19.9605 25.1496 22.6579 22.9004
+                25.2524 20.6021C27.2512 18.8311 29.1371 17.0434 30.2435 14.6475C31.0749 12.8479 31.3578 10.8099 31.0616
+                8.75526C30.7654 6.70065 29.9188 4.826 28.6132 3.33385C26.8661 1.33702 24.4582 0.153657 22.0058
+                0.086587C20.2201 0.0387745 18.4019 0.638423 17.018 1.7328C16.7272 1.96256 16.4874 2.26471 16.255
+                2.5569C16.1846 2.64588 16.0897 2.76475 16 2.87034C15.9097 2.76541 15.8154 2.64588 15.745 2.5569C15.5132
+                2.26471 15.2735 1.96256 14.9827 1.7328C13.5981 0.638423 11.7806 0.0381104 9.99423 0.086587C7.54184
+                0.152993 5.13395 1.33702 3.38681 3.33319C2.08126 4.82534 1.23458 6.69998 0.938408 8.75459C0.642236
+                10.8092 0.925126 12.8465 1.75653 14.6468C2.86352 17.0434 4.74946 18.8311 6.74829 20.6021ZM4.98587
+                4.73303C6.32395 3.2037 8.21719 2.26073 10.0513 2.21092C10.0998 2.20959 10.149 2.20893 10.1981
+                2.20893C11.4459 2.20893 12.7023 2.63924 13.6645 3.40026C13.7615 3.47729 13.9381 3.69909 14.0802
+                3.87838C14.4448 4.33725 14.8572 4.85787 15.4568 5.07702C15.5956 5.12748 15.7404 5.16135 15.8871
+                5.17662C15.9622 5.18459 16.0379 5.18459 16.1122 5.17662C16.259 5.16069 16.4038 5.12748 16.5439
+                5.07635C17.1422 4.85721 17.5552 4.33725 17.9191 3.87772C18.0613 3.69909 18.2372 3.47663 18.3348
+                3.39959C19.3349 2.6087 20.6518 2.17573 21.9473 2.21092C23.7815 2.26073 25.6754 3.2037 27.0135
+                4.73303C29.1206 7.14092 29.6551 10.851 28.3131 13.7563C27.3787 15.779 25.6648 17.3967 23.8419
+                19.0117C21.3039 21.2602 18.6662 23.4609 15.9993 25.554C13.3325 23.4609 10.6941 21.2602 8.15677
+                19.0117C6.33391 17.3967 4.61997 15.779 3.68563 13.7563C2.34423 10.851 2.8788 7.14092 4.98587 4.73303Z"
+                          fill="#1C1C28"/>
+                </svg>
+                <div class="info-icons_icon_info">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="#FF8800"/>
+                    </svg>
+                    <span class="info-icons_icon_count medium-label">20</span>
+                </div>
+            </div>
+            <div class="info-icons_icon">
+                <svg width="38" height="25" viewBox="0 0 38 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.9869 24.7527H2.9079C1.39063 24.7527 0.156258 23.5396 0.156258
+                22.0485V6.13767V3.12473C0.156258 1.63362 1.39063 0.420532 2.9079 0.420532H34.9869C36.5041 0.420532
+                37.7385 1.63362 37.7385 3.12473V6.13767V22.0485C37.7385 23.5388 36.5041 24.7527 34.9869
+                24.7527ZM2.9079 22.1665H34.9869C35.0526 22.1665 35.1069 22.114 35.1069 22.0485V8.2236L19.5329
+                15.8311C19.3487 15.9208 19.148 15.9661 18.9474 15.9661C18.7467 15.9661 18.5461 15.9208 18.3619
+                15.8311L2.78784 8.2236V22.0477C2.78784 22.1131 2.84211 22.1665 2.9079 22.1665ZM35.1069 3.12473C35.1069
+                3.05927 35.0526 3.00674 34.9869 3.00674H2.9079C2.84211 3.00674 2.78784 3.05927 2.78784
+                3.12473V5.33594L18.9474 13.2295L35.1069 5.33594V3.12473Z" fill="#1C1C28"/>
+                </svg>
+                <div class="info-icons_icon_info">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="#FF8800"/>
+                    </svg>
+                    <span class="info-icons_icon_count medium-label">20</span>
+                </div>
+            </div>
+            <div class="info-icons_icon">
+                <svg width="40" height="30" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 0L38.7617 3.33333H35.5467L29.7567 23.3333H7.69167L0 5H28.02L27.08 8.33333H5.01333L9.90833
+                20H27.2883L33.0083 0H40ZM14.1667 25C12.7867 25 11.6667 26.12 11.6667 27.5C11.6667 28.8817 12.7867 30
+                14.1667 30C15.5467 30 16.6667 28.8817 16.6667 27.5C16.6667 26.12 15.5467 25 14.1667 25ZM25.6667
+                13.3333L22.5 25C21.12 25 20 26.1183 20 27.5C20 28.8817 21.12 30 22.5 30C23.88 30 25 28.8817 25 27.5C25
+                26.12 23.88 25 22.5 25L25.6667 13.3333Z" fill="#1C1C28"/>
+                </svg>
+                <div class="info-icons_icon_info">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="#FF8800"/>
+                    </svg>
+                    <span class="info-icons_icon_count medium-label">20</span>
+                </div>
+            </div>
+        </div>
+        <div class="header_profile">
+            <button class="btn btn-orange">
+                <span class="large-label">Войти</span>
+                <svg width="15" height="21" viewBox="0 0 15 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.49995 9.82168C8.72048 9.82168 9.88171 9.20356 10.7698 8.08141C11.5667 7.07426 12.024
+                5.80881 12.024 4.60984C12.024 3.39246 11.5416 2.27166 10.6651 1.45273C9.82421 0.667949 8.70026
+                0.235352 7.49995 0.235352C6.29964 0.235352 5.17569 0.667949 4.3352 1.45273C3.45878 2.27166 2.97632
+                3.39246 2.97632 4.60984C2.97632 5.80926 3.43317 7.07471 4.23054 8.08141C5.11819 9.204 6.27942 9.82168
+                7.49995 9.82168ZM5.31675 2.50346C5.88995 1.96799 6.6653 1.67285 7.49995 1.67285C8.3346 1.67285 9.10995
+                1.96799 9.68315 2.50346C10.2653 3.04746 10.5861 3.79541 10.5861 4.61029C10.5861 6.32002 9.20923
+                8.38463 7.49995 8.38463C5.79067 8.38463 4.41382 6.32002 4.41382 4.61029C4.41382 3.79541 4.73456 3.04701
+                5.31675 2.50346Z" fill="white"/>
+                    <path d="M0.642201 12.9995C0.175912 13.9217 0.0263223 15.0268 0.184447 16.3785C0.357846 17.8587
+                0.587397 19.1192 0.885678 20.2319C0.969682 20.5459 1.25449 20.7647 1.57972 20.7647H13.4207C13.7459
+                20.7647 14.0307 20.5459 14.1152 20.2319C14.4135 19.1174 14.6426 17.8569 14.8151 16.379C14.9736 15.0277
+                14.824 13.9226 14.3577 12.9999C13.8811 12.0561 13.0123 11.2183 11.9118 10.6402C11.6701 10.5135 11.4158
+                10.3976 11.1566 10.2965C10.9486 10.2152 10.7146 10.2355 10.5237 10.3505C9.58749 10.9156 8.54216 11.2143
+                7.49997 11.2143C6.45824 11.2143 5.41246 10.9156 4.47628 10.3505C4.28537 10.235 4.05132 10.2152
+                3.84333 10.2965C3.58414 10.3981 3.32988 10.5135 3.0882 10.6406C1.98716 11.2183 1.11882 12.0561
+                0.642201 12.9995ZM3.75574 11.9133C3.85367 11.8621 3.95429 11.8127 4.05671 11.7659C5.13304 12.3463
+                6.31583 12.6518 7.49953 12.6518C8.68322 12.6518 9.86601 12.3468 10.9423 11.7659C11.0448 11.8127
+                11.1454 11.8616 11.2433 11.9128C12.0811 12.3526 12.7311 12.9685 13.0743 13.6477C13.4139 14.3197
+                13.5132 15.1342 13.387 16.2105V16.211C13.2495 17.3857 13.0766 18.4112 12.8601 19.3267H2.1399C1.92382
+                18.4126 1.74997 17.387 1.61251 16.211C1.48628 15.1337 1.58601 14.3193 1.92562 13.6473C2.26792 12.9694
+                2.91839 12.3531 3.75574 11.9133Z" fill="white"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+<main class="container content">
+    <div class="g-block">
+        <h3>Какая-то подборка</h3>
+        <div class="g-block_goods goods-cat">
+        </div>
+    </div>
+    <div class="g-block">
+        <h3>Какая-то подборка</h3>
+        <div class="g-block_goods goods-cat">
+        </div>
+    </div>
+    <div class="g-block">
+        <h3>Какая-то подборка</h3>
+        <div class="g-block_goods goods-cat loading">
+        </div>
+    </div>
+    <div class="g-large-block">
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+        <div class="goods-medium">
+            <div class="goods-medium_header">
+                <img src="https://www.colorbook.io/imagecreator.php?width=70&height=75" class="goods-medium_header_image" alt="">
+                <div class="goods-medium_info">
+                    <span class="medium-label">Название</span>
+                    <span class="medium-label">Цена, руб.</span>
+                </div>
+            </div>
+            <div class="goods-medium_description">
+                <span class="tiny-text">Suspendisse vehicula nisl in vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla. Suspendisse vehicula nisl in
+                    vehicula dapibus. Fusce tempus diam purus,
+                    sit amet blandit quam suscipit placerat. Sed fermentum tempus nulla.</span>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <nav class="footer_menu">
+        <div class="large-label footer_menu_item menu-item">
+            Покупателям
+            <div class="arrow arrow-up">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.8766 7.33749C15.1207 7.58163 15.1207 7.97734 14.8766 8.22148L10.4355 12.6625C10.3184
+                    12.7797 10.159 12.8457 9.99296 12.8457C9.82695 12.8457 9.66796 12.7793 9.55078 12.6621L5.12265
+                    8.22109C5.00117 8.09921 4.94023 7.93945 4.94023 7.77968C4.94023 7.61953 5.00156 7.45898 5.12382
+                    7.3371C5.36835 7.09335 5.76406 7.09413 6.00781 7.33827L9.99413 11.3359L13.9926 7.33749C14.2367
+                    7.09335 14.6324 7.09335 14.8766 7.33749Z" fill="#1C1C28" transform="rotate(-180 10 10)"/>
+                </svg>
+            </div>
+        </div>
+        <div class="large-label footer_menu_item menu-item">
+            Продавцам
+            <div class="arrow arrow-up">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.8766 7.33749C15.1207 7.58163 15.1207 7.97734 14.8766 8.22148L10.4355 12.6625C10.3184
+                    12.7797 10.159 12.8457 9.99296 12.8457C9.82695 12.8457 9.66796 12.7793 9.55078 12.6621L5.12265
+                    8.22109C5.00117 8.09921 4.94023 7.93945 4.94023 7.77968C4.94023 7.61953 5.00156 7.45898 5.12382
+                    7.3371C5.36835 7.09335 5.76406 7.09413 6.00781 7.33827L9.99413 11.3359L13.9926 7.33749C14.2367
+                    7.09335 14.6324 7.09335 14.8766 7.33749Z" fill="#1C1C28" transform="rotate(-180 10 10)" />
+                </svg>
+            </div>
+            <div class="menu">
+                <div class="menu-item large-label">Item 1 asdasdasdasdasdasdasd
+                </div>
+                <div class="menu-item large-label">Item 1 asdasdasdasdasdasdasd
+                </div>
+                <div class="menu-item large-label">Item 1 asdasdasdasdasdasdasd
+                </div>
+            </div>
+        </div>
+        <div class="large-label footer_menu_item menu-item">
+            О нас
+        </div>
+    </nav>
+</footer>
+</body>
 </html>
