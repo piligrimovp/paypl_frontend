@@ -1,28 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./pages/main/Main"
 import ErrorPath from "./components/Errors/ErrorPath/ErrorPath";
-import Category from "./pages/category/category";
-
-window.HOST = 'http://paypl/api';
+import Category from "./pages/category/Category";
+import './settings';
+import BreadcrumbFormatted from "./components/BreadcrumbFormatted/BreadcrumbFormatted";
+import ProductPage from "./pages/product/ProductPage";
+import {useParams} from "react-router-dom";
 
 ReactDOM.render(
     <>
-        <BrowserRouter>
+        <Router>
             <Header/>
-            <main className="container">
+            <main className="mt-5 main">
                 <Switch>
                     <Route exact path='/' component={Main}/>
-                    <Route path='/category/:subcategory' component={Category}/>
+                    <Route path={'/catalog/:category/:product'} component={() => <ProductPage slug={useParams().product}/>}/>
+                    <Route path='/catalog' component={Category}/>
                     <Route path='/' component={ErrorPath}/>
                 </Switch>
             </main>
             <Footer/>
-        </BrowserRouter>
+        </Router>
     </>
     ,
     document.getElementById('page')

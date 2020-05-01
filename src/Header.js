@@ -1,6 +1,5 @@
 import React from "react";
 import HeaderMenu from "./components/HeaderMenu/HeaderMenu";
-import {BrowserRouter} from "react-router-dom";
 import logo from './media/pp258.png'
 import {Badge, Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
 
@@ -12,9 +11,7 @@ export default function Header() {
                     <Navbar.Brand href={'/'}>
                         <img className="logo_img d-inline-block align-top" src={logo} alt="PayPlay"/>
                     </Navbar.Brand>
-                    <BrowserRouter>
                         <HeaderMenu/>
-                    </BrowserRouter>
                     <Form className={'input-group mx-4'}>
                         <FormControl type={'text'} placeholder={'Введите название продукта'}
                                      aria-describedby="basic-addon2"/>

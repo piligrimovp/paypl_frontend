@@ -2,6 +2,7 @@ import React, {useState, useRef, useCallback} from "react";
 import Goods from '../../Entity/Goods';
 import ProgressBar from "../PropgressBar/PropgressBar";
 import ErrorLoading from "../Errors/ErrorLoading/ErrorLoading";
+import {Link} from "react-router-dom";
 
 export default function GBlockGoods(props) {
     const [pageNumber, setPageNumber] = useState(1);
@@ -30,21 +31,26 @@ export default function GBlockGoods(props) {
                              alt="" className="goods-small_image"/>
                         <div className="goods-small_info d-inline-block">
                             <span className="medium-label" data-toggle="tooltip" data-placement="bottom"
-                                title={good.name}>
+                                  title={good.name}>
                                 {good.name}
                             </span>
                             <span className="medium-label">{good.price}, руб.</span>
                         </div>
                     </>;
+                    let goodBlock = null;
                     if (goods.length === index + 1) {
-                        return <div ref={lastGoodRef} key={good.id} className="goods-small p-0"
-                                    data-id={good.id}>
+                        goodBlock = <div ref={lastGoodRef} key={good.slug} className="goods-small p-0"
+                                         data-id={good.slug}>
+                            {body}
+                        </div>
+                    } else {
+                        goodBlock = <div key={good.slug} className="goods-small p-0" data-id={good.slug}>
                             {body}
                         </div>
                     }
-                    return <div key={good.id} className="goods-small p-0" data-id={good.id}>
-                        {body}
-                    </div>
+                    return <Link key={good.slug} className={'btn-link'} to={'/catalog/' + good.category_slug + '/' + good.slug}>
+                        {goodBlock}
+                    </Link>
                 })}
                 {error && <ErrorLoading/>}
             </div>

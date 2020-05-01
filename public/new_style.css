@@ -7936,4 +7936,31 @@ body, html {
   border-radius: 1rem;
   background-color: #000; }
 
+.filter {
+  width: 200px;
+  min-height: 100%; }
+
+#page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+.main {
+  flex: 1; }
+
+div {
+  box-sizing: border-box !important; }
+
+.carouselProduct {
+  height: 400px; }
+  .carouselProduct img {
+    max-height: 400px; }
+
+.price {
+  position: relative; }
+  .price .old_price {
+    position: absolute;
+    top: -30px;
+    right: -25%; }
+
 /*# sourceMappingURL=new_style.css.map */

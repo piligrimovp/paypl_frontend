@@ -2,6 +2,7 @@ import React, {useState, useRef, useCallback} from "react";
 import Goods from '../../Entity/Goods';
 import ProgressBar from "../PropgressBar/PropgressBar";
 import ErrorLoading from "../Errors/ErrorLoading/ErrorLoading";
+import {Link} from "react-router-dom";
 
 export default function GBlockGoodsLarge(props) {
     const [pageNumber, setPageNumber] = useState(1);
@@ -27,7 +28,7 @@ export default function GBlockGoodsLarge(props) {
                     <div className="goods-medium_header">
                         <img src={good.media_link} className="goods-medium_header_image" alt=""/>
                         <div className="goods-medium_info d-inline-block">
-                            <span className="medium-label"  data-toggle="tooltip" data-placement="bottom"
+                            <span className="medium-label" data-toggle="tooltip" data-placement="bottom"
                                   title={good.name}>
                                 {good.name}
                             </span>
@@ -38,16 +39,22 @@ export default function GBlockGoodsLarge(props) {
                         <span className="tiny-text">{good.description}</span>
                     </div>
                 </>;
+                let goodBlock = null;
                 if (goods.length === index + 1) {
-                    return <div ref={lastGoodRef} key={good.id} className="goods-medium" data-id={good.id}>
+                    goodBlock = <div ref={lastGoodRef} key={good.slug} className="goods-medium" data-id={good.slug}>
                         {body}
                     </div>
+                } else {
+                    goodBlock = <div key={good.slug} className="goods-medium" data-id={good.slug}>
+                        {body}
+                    </div>;
                 }
-                return <div key={good.id} className="goods-medium" data-id={good.id}>
-                    {body}
-                </div>
+                return <Link key={good.slug} className={'btn-link'}
+                             to={'/catalog/' + good.category_slug + '/' + good.slug}>
+                    {goodBlock}
+                </Link>
             })}
-            {error && <ErrorLoading />}
+            {error && <ErrorLoading/>}
         </div>
     );
 }

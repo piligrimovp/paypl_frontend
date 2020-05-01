@@ -20,38 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cbee2bb-79ea-4099-9b11-12bc5ec00646" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/new_style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Goods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Errors/ErrorLoading/ErrorLoading.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Errors/ErrorPath/ErrorPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GBlockGoods/GBlockGoods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GBlockGoodsLarge/GBlockGoodsLarge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HeaderMenu/HeaderMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PropgressBar/Bar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PropgressBar/Container.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PropgressBar/PropgressBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/category/category.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/main/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ToDo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BreadcrumbFormatted/BreadcrumbFormatted.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/product/ProductPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/media/pp258.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GoodSmall.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/new_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/new_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/new_style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/new_style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GBlockGoods/GBlockGoods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GBlockGoods/GBlockGoods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GBlockGoodsLarge/GBlockGoodsLarge.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GBlockGoodsLarge/GBlockGoodsLarge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeaderMenu/HeaderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderMenu/HeaderMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/category/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/category/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,18 +73,18 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\pp_frontend\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\pp_frontend\src" />
       <recent name="E:\pp_frontend\src\components" />
       <recent name="E:\pp_frontend\src\pages\main\Components" />
       <recent name="E:\pp_frontend\public\media" />
-      <recent name="E:\pp_frontend\src" />
       <recent name="E:\pp_frontend\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pp_frontend\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -119,8 +105,19 @@
       <workItem from="1587313066589" duration="1646000" />
       <workItem from="1587314753958" duration="1198000" />
       <workItem from="1587885129368" duration="31188000" />
-      <workItem from="1587998558497" duration="5816000" />
+      <workItem from="1587998558497" duration="6120000" />
+      <workItem from="1588053549469" duration="14884000" />
+      <workItem from="1588160726373" duration="29063000" />
+      <workItem from="1588339473034" duration="1074000" />
     </task>
+    <task id="LOCAL-00001" summary="components rewrote to bootstrap">
+      <created>1588007693653</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588007693653</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,24 +135,29 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rewrite components on Bootstrap" />
+    <MESSAGE value="components rewrote to bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="components rewrote to bootstrap" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="42" key="#ESLint" timestamp="1587899988048">
+    <state x="275" y="42" key="#ESLint" timestamp="1588097317753">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="42" key="#ESLint/0.0.1366.768/-2224.-421.2224.1668@0.0.1366.768" timestamp="1587899988048" />
-    <state x="275" y="42" key="#ESLint/0.0.1366.768@0.0.1366.768" timestamp="1587227362623" />
+    <state x="275" y="42" key="#ESLint/0.0.1366.768@0.0.1366.768" timestamp="1588097317753" />
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587227574168">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1587227574168" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1588006299184">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1588007692208">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1588006299184" />
-    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1587202042853">
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1588007692208" />
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1588163877357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587202042853" />
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588163877357" />
     <state width="1345" height="191" key="GridCell.Tab.0.bottom" timestamp="1587204067220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -172,14 +174,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1345" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1587204067220" />
-    <state x="184" y="26" key="SettingsEditor" timestamp="1587313141488">
+    <state x="184" y="26" key="SettingsEditor" timestamp="1588093307547">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1587313141488" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1586454329267">
+    <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1588093307547" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1588007701188">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1586454329267" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588007701188" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1587053398654">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -189,14 +191,18 @@
     </state>
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768/-2224.-421.2224.1668@0.0.1366.768" timestamp="1587914889039" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1587227709772" />
-    <state x="379" y="117" width="607" height="534" key="find.popup" timestamp="1588006155014">
+    <state x="379" y="117" width="607" height="534" key="find.popup" timestamp="1588225273933">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="379" y="117" width="607" height="534" key="find.popup/0.0.1366.768/-2224.-421.2224.1668@0.0.1366.768" timestamp="1587902840959" />
-    <state x="379" y="117" width="607" height="534" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1588006155014" />
+    <state x="379" y="117" width="607" height="534" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1588225273933" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1587208356640">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587208356640" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1588165256072">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588165256072" />
   </component>
 </project>

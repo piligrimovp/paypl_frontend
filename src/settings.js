@@ -1,0 +1,1 @@
+window.HOST = 'http://paypl/api';

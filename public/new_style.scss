@@ -216,3 +216,39 @@ body, html {
   border-radius: 1rem;
   background-color: $black;
 }
+
+.filter {
+  width: 200px;
+  min-height: 100%;
+}
+
+#page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+div {
+  box-sizing: border-box !important;
+}
+
+.carouselProduct {
+  height: 400px;
+  img {
+    max-height: 400px;
+  }
+}
+
+.price {
+  position: relative;
+
+  .old_price {
+    position: absolute;
+    top: -30px;
+    right: -25%;
+  }
+}
