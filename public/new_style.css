@@ -7946,7 +7946,8 @@ body, html {
   flex-direction: column; }
 
 .main {
-  flex: 1; }
+  flex: 1;
+  position: relative; }
 
 div {
   box-sizing: border-box !important; }
@@ -7960,7 +7961,22 @@ div {
   position: relative; }
   .price .old_price {
     position: absolute;
-    top: -30px;
+    top: -25px;
     right: -25%; }
+    .price .old_price:before {
+      content: "";
+      display: block;
+      position: relative;
+      height: 3px;
+      width: 90%;
+      background: #fff;
+      transform: rotate(-12deg);
+      top: 19px;
+      left: 6%; }
+
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 /*# sourceMappingURL=new_style.css.map */

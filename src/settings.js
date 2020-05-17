@@ -1,1 +1,1 @@
-window.HOST = 'http://paypl/api';
+window.HOST = 'https://localhost:44388/api';

@@ -20,7 +20,7 @@ export default class HeaderMenu extends Component {
             .then(data => {
                 this.setState({
                     loading: false,
-                    categories: [...this.state.categories, ...data.categories],
+                    categories: [...this.state.categories, ...data],
                 });
             });
     }

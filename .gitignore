@@ -122,3 +122,5 @@ fabric.properties
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
 /vendor/
+
+/src/settings.js

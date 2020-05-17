@@ -2,6 +2,7 @@ import React from "react";
 import HeaderMenu from "./components/HeaderMenu/HeaderMenu";
 import logo from './media/pp258.png'
 import {Badge, Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
+import {LinkContainer} from "react-router-bootstrap";
 
 export default function Header() {
     return (
@@ -33,12 +34,14 @@ export default function Header() {
                             <Badge className={'badge-primary rounded-circle'}>2</Badge>
                         </Nav.Link>
                     </Nav>
-                    <Nav.Link href={'profile'} className={'btn btn-primary ml-4'}>
+                    <LinkContainer exact={true} to={'/profile'}>
+                    <Nav.Link className={'btn btn-primary ml-4'}>
                         <span className={'large-label'}>
                             Войти
                             <span className={'glyphicon glyphicon-user ml-2'} aria-hidden={true}/>
                         </span>
                     </Nav.Link>
+                    </LinkContainer>
                 </div>
             </Navbar>
         </header>

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 export default function GBlockGoodsLarge(props) {
     const [pageNumber, setPageNumber] = useState(1);
-    const {loading, error, goods, hasMore} = Goods(pageNumber, 50, props.mode);
+    const {loading, error, goods, hasMore} = Goods(pageNumber, 48, props.mode);
     const observer = useRef();
 
     const lastGoodRef = useCallback(node => {
@@ -41,7 +41,7 @@ export default function GBlockGoodsLarge(props) {
                 </>;
                 let goodBlock = null;
                 if (goods.length === index + 1) {
-                    goodBlock = <div ref={lastGoodRef} key={good.slug} className="goods-medium" data-id={good.slug}>
+                    goodBlock = <div ref={lastGoodRef} key={good.slug} className="goods-medium m-0" data-id={good.slug}>
                         {body}
                     </div>
                 } else {
@@ -50,7 +50,7 @@ export default function GBlockGoodsLarge(props) {
                     </div>;
                 }
                 return <Link key={good.slug} className={'btn-link'}
-                             to={'/catalog/' + good.category_slug + '/' + good.slug}>
+                             to={'catalog/' + good.category_slug + '/' + good.slug}>
                     {goodBlock}
                 </Link>
             })}
