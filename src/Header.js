@@ -1,8 +1,20 @@
 import React from "react";
 import HeaderMenu from "./components/HeaderMenu/HeaderMenu";
 import logo from './media/pp258.png'
-import {Badge, Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
-import {LinkContainer} from "react-router-bootstrap";
+import {
+    Badge,
+    Button,
+    Dropdown,
+    DropdownButton,
+    Form,
+    FormControl,
+    Nav,
+    Navbar,
+} from "react-bootstrap";
+import {createAuthProvider} from "./Entity/AuthProvider";
+import {Link} from "react-router-dom";
+
+export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider();
 
 export default function Header() {
     return (
@@ -12,7 +24,7 @@ export default function Header() {
                     <Navbar.Brand href={'/'}>
                         <img className="logo_img d-inline-block align-top" src={logo} alt="PayPlay"/>
                     </Navbar.Brand>
-                        <HeaderMenu/>
+                    <HeaderMenu/>
                     <Form className={'input-group mx-4'}>
                         <FormControl type={'text'} placeholder={'Введите название продукта'}
                                      aria-describedby="basic-addon2"/>
@@ -22,8 +34,8 @@ export default function Header() {
                     </Form>
                     <Nav className={'mx-4'}>
                         <Nav.Link className={'notification notification__favourites mx-3 lg'} href={''}>
-                                <span aria-hidden={true} className={'glyphicon glyphicon-heart'}/>
-                                <Badge className={'badge-primary rounded-circle'}>2</Badge>
+                            <span aria-hidden={true} className={'glyphicon glyphicon-heart'}/>
+                            <Badge className={'badge-primary rounded-circle'}>2</Badge>
                         </Nav.Link>
                         <Nav.Link className={'notification notification__messages mx-3'} href={''}>
                             <span aria-hidden={true} className={'glyphicon glyphicon-envelope'}/>
@@ -34,14 +46,32 @@ export default function Header() {
                             <Badge className={'badge-primary rounded-circle'}>2</Badge>
                         </Nav.Link>
                     </Nav>
-                    <LinkContainer exact={true} to={'/profile'}>
-                    <Nav.Link className={'btn btn-primary ml-4'}>
-                        <span className={'large-label'}>
-                            Войти
-                            <span className={'glyphicon glyphicon-user ml-2'} aria-hidden={true}/>
-                        </span>
-                    </Nav.Link>
-                    </LinkContainer>
+                    {
+                        !useAuth() ?
+                            <Link to={'/profile'} className={'btn btn-primary ml-4'}>
+                                <span className={'large-label'}>
+                                        Войти
+                                        <span className={'glyphicon glyphicon-user ml-2'} aria-hidden={true}/>
+                                    </span>
+                            </Link>
+                            :
+                            <DropdownButton placement={'bottom'} variant={'primary text-left btn-profile no-dropdown-toggle-content'} title={
+                                                <span data-toggle="tooltip" data-placement="left"
+                                                         title={getUser().name}>
+                                                    {getUser().name}
+                                                </span>} id={'profile_dropdown'}>
+                                <Dropdown.Item as={'div'} className={'p-0'}>
+                                    <Link to={'/profile'} className={'btn btn-block btn-link text-left'}>
+                                        Профиль
+                                    </Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item as={'div'} className={'p-0'}>
+                                    <Button variant={'link'} className={'btn-block text-left'} onClick={logout}>
+                                        Выйти
+                                    </Button>
+                                </Dropdown.Item>
+                            </DropdownButton>
+                    }
                 </div>
             </Navbar>
         </header>

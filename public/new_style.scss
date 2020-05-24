@@ -83,7 +83,6 @@ body, html {
 }
 
 .form-control {
-  border: none;
 
   &:focus {
     box-shadow: $box-shadow;
@@ -270,4 +269,15 @@ div {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.btn-profile {
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.no-dropdown-toggle-content:after { content: none }
+
+.register-avatar {
+  max-width: 100px;
 }

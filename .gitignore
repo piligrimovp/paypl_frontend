@@ -124,3 +124,4 @@ fabric.properties
 /vendor/
 
 /src/settings.js
+.idea/

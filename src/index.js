@@ -11,6 +11,7 @@ import './settings';
 import ProductPage from "./pages/product/ProductPage";
 import {useParams} from "react-router-dom";
 import AboutPage from "./pages/about/AboutPage";
+import Profile from "./pages/profile/Profile";
 
 ReactDOM.render(
     <>
@@ -23,6 +24,7 @@ ReactDOM.render(
                     <Route path='/catalog/:category' component={CategoryPage}/>
                     <Route path='/catalog' component={CategoryPage}/>
                     <Route exact path={'/about'} component={AboutPage}/>
+                    <Route path={'/profile'} component={Profile} />
                     <Route path='/' component={ErrorPath}/>
                 </Switch>
             </main>

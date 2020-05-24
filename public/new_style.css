@@ -7830,10 +7830,8 @@ body, html {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     text-decoration: none; }
 
-.form-control {
-  border: none; }
-  .form-control:focus {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
+.form-control:focus {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
 
 .br-l-0 {
   border-top-left-radius: 0;
@@ -7978,5 +7976,15 @@ div {
   position: absolute;
   top: 0;
   left: 0; }
+
+.btn-profile {
+  max-width: 150px;
+  overflow: hidden; }
+
+.no-dropdown-toggle-content:after {
+  content: none; }
+
+.register-avatar {
+  max-width: 100px; }
 
 /*# sourceMappingURL=new_style.css.map */
