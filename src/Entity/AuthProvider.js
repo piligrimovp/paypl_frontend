@@ -100,12 +100,12 @@ export const createAuthProvider = () => {
     const login: typeof tokenProvider.setToken = (newTokens) => {
         tokenProvider.setToken(newTokens.token);
         tokenProvider.setUser(newTokens.user)
-        window.location.reload();
+        window.history.back();
     };
 
     const logout = () => {
         tokenProvider.setToken(null);
-        window.location.reload();
+        window.history.back();
     };
 
     const authFetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {

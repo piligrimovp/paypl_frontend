@@ -33,9 +33,62 @@ export default class ProductPage extends Component {
     }
 
     renderProduct() {
+
+        console.log(this.state);
+        const render_badge = () => {
+            if(!this.state.product.is_deleted)
+            return <>
+                <div>
+                    {this.state.product.discount !== null ?
+                       <>
+                           <h1>
+                               <OverlayTrigger placement={'bottom'} overlay={
+                                   <Tooltip id={`tooltip-${this.state.product.discount}`}>
+                                       <strong>Цена со скидкой!</strong>.
+                                   </Tooltip>
+                               }>
+                                   <Badge variant={'success'} className={'price'}>
+                                       {this.state.product.discount}, руб
+                                       <h3 className={'old_price'}>
+                                           <OverlayTrigger placement={'bottom'} overlay={
+                                               <Tooltip id={`tooltip-${this.state.product.price}`}>
+                                                   <strong>Cтарая цена</strong>.
+                                               </Tooltip>
+                                           }>
+                                               <Badge variant={'danger'}>{this.state.product.price}</Badge>
+                                           </OverlayTrigger>
+                                       </h3>
+                                   </Badge>
+                               </OverlayTrigger>
+                           </h1>
+                       </> :
+                       <h1><Badge variant={'light'} className={'price'}>
+                           {this.state.product.price}, руб
+                       </Badge></h1>}
+                </div>
+                <ButtonToolbar className={'w-75'}>
+                    {/*
+                                ToDo: не работает кнопка в корзину
+                            */}
+                    <Button type={'button'} variant={'outline-primary btn-block'}>В корзину</Button>
+                    {/*
+                                ToDo: не работает кнопка написать продавцу
+                            */}
+                    <Button type={'button'} variant={'outline-primary btn-block mt-2'}>Написать
+                        продавцу</Button>
+                </ButtonToolbar>
+            </>
+            else{
+                return <div>
+                    <h1><Badge variant={'danger'} className={'price'}>Товар удален</Badge></h1>
+                </div>
+            }
+        }
+
         if (this.state.loading || this.state.product.length === 0) {
             return <></>
         }
+
         return <>
         <div className={'row m-0 p-0 justify-content-between'}>
             <div className={'col-3 mt-5'}>
@@ -56,46 +109,8 @@ export default class ProductPage extends Component {
                     {this.state.product.description}
                 </article>
             </div>
-            <div className={'col-3 mt-5 p-0'}>
-                <div className={''}>
-                    {this.state.product.discount !== null ?
-                        <>
-                            <h1>
-                                <OverlayTrigger placement={'bottom'} overlay={
-                                    <Tooltip id={`tooltip-${this.state.product.discount}`}>
-                                        <strong>Цена со скидкой!</strong>.
-                                    </Tooltip>
-                                }>
-                                    <Badge variant={'success'} className={'price'}>
-                                        {this.state.product.discount}, руб
-                                        <h3 className={'old_price'}>
-                                            <OverlayTrigger placement={'bottom'} overlay={
-                                                <Tooltip id={`tooltip-${this.state.product.price}`}>
-                                                    <strong>Cтарая цена</strong>.
-                                                </Tooltip>
-                                            }>
-                                                <Badge variant={'danger'}>{this.state.product.price}</Badge>
-                                            </OverlayTrigger>
-                                        </h3>
-                                    </Badge>
-                                </OverlayTrigger>
-                            </h1>
-                        </> :
-                        <h1><Badge variant={'light'} className={'price'}>
-                            {this.state.product.price}, руб
-                        </Badge></h1>}
-                </div>
-                <ButtonToolbar className={'w-75'}>
-                    {/*
-                                ToDo: не работает кнопка в корзину
-                            */}
-                    <Button type={'button'} variant={'outline-primary btn-block'}>В корзину</Button>
-                    {/*
-                                ToDo: не работает кнопка написать продавцу
-                            */}
-                    <Button type={'button'} variant={'outline-primary btn-block mt-2'}>Написать
-                        продавцу</Button>
-                </ButtonToolbar>
+            <div className={'col-3 mt-5 p-0'}> {/*Див с ценами и кнопками*/}
+                {render_badge()}
             </div>
         </div>
     </>
