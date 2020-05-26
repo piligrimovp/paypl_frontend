@@ -68,6 +68,7 @@ export const createTokenProvider = () => {
             localStorage.setItem('REACT_TOKEN_AUTH', JSON.stringify(token));
         } else {
             localStorage.removeItem('REACT_TOKEN_AUTH');
+            localStorage.removeItem('REACT_USER_AUTH');
         }
         _token = token;
         notify();
@@ -98,7 +99,7 @@ export const createAuthProvider = () => {
 
     const login: typeof tokenProvider.setToken = (newTokens) => {
         tokenProvider.setToken(newTokens.token);
-        tokenProvider.setUser({name: newTokens.name, avatar: newTokens.avatar})
+        tokenProvider.setUser(newTokens.user)
         window.location.reload();
     };
 
@@ -141,11 +142,16 @@ export const createAuthProvider = () => {
         return tokenProvider.getUser();
     }
 
+    const updateUser = (name: string, value: string) => {
+
+    }
+
     return {
         useAuth,
         authFetch,
         login,
         logout,
-        getUser
+        getUser,
+        updateUser
     }
 };

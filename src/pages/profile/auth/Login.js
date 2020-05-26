@@ -12,7 +12,7 @@ export default function Login() {
         email: '',
         password: ''
     });
-    const [errorLogin, setErrorLogin] = useState({status: false, message: ''});
+    const [errorLogin, setErrorLogin] = useState({status: false, message: 'Ошибка при авторизации'});
 
     const onChangeLogin = ({target: {name, value}}: ChangeEvent<HTMLInputElement>) => {
         setCredentialsLogin({...credentialsLogin, [name]: value})
@@ -42,6 +42,7 @@ export default function Login() {
             })
             .catch(error => {
                 setLoading(false);
+                setErrorLogin(prevState => ({...prevState, status: true}));
             })
     }
 
