@@ -282,10 +282,45 @@ div {
   max-width: 100px;
 }
 
-.profile-avatar {
-  width: 150px;
+.profile-avatar, .goods-media {
+  text-align: center;
+
+  img {
+    width: 150px;
+  }
 }
 
 .message-avatar {
 
+}
+
+.btn_edit-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid $white;
+  background: $white;
+}
+
+.js-editor {
+  box-shadow: $box-shadow;
+  max-width: 800px;
+  margin: auto;
+}
+
+.table-custom {
+  border: none;
+
+  td:hover {
+    cursor: pointer;
+    box-shadow: $box-shadow;
+  }
+
+  &:not(:last-of-type) {
+    border-right: 10px;
+  }
+
+  .td_active {
+    background: $gray-200;
+  }
 }

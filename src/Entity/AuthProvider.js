@@ -41,7 +41,7 @@ export const createTokenProvider = () => {
             setToken(updatedToken);
         }
 
-        return _token && _token.accessToken;
+        return _token;// && _token.accessToken;
     };
 
     const isLoggedIn = () => {
@@ -100,12 +100,12 @@ export const createAuthProvider = () => {
     const login: typeof tokenProvider.setToken = (newTokens) => {
         tokenProvider.setToken(newTokens.token);
         tokenProvider.setUser(newTokens.user)
-        window.history.back();
+        window.reload();
     };
 
     const logout = () => {
         tokenProvider.setToken(null);
-        window.history.back();
+        window.reload();
     };
 
     const authFetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
@@ -142,6 +142,20 @@ export const createAuthProvider = () => {
         return tokenProvider.getUser();
     }
 
+    const getUserDetail = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
+        authFetch(window.HOST + "/profile/detail", {
+            method: 'POST',
+            mode: "cors",
+        })
+            .then(response => response.json())
+            .then(data => {
+                return data;
+            })
+            .catch(e => {
+                return [];
+            });
+    }
+
     const updateUser = (name: string, value: string) => {
 
     }
@@ -152,6 +166,7 @@ export const createAuthProvider = () => {
         login,
         logout,
         getUser,
-        updateUser
+        updateUser,
+        getUserDetail
     }
 };
