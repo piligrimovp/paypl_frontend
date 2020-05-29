@@ -23,10 +23,9 @@ export default class CreateClass extends React.Component {
         super(props);
         this.state = {
             good: {
-                slug: '',
                 medias: [],
                 medias_preview: [],
-                price: 0,
+                price: null,
             },
             errors: [],
             category: [],
@@ -69,7 +68,7 @@ export default class CreateClass extends React.Component {
 
     fileUpload = (event) => {
         event.persist()
-        let new_medias = [...this.state.good.medias, event.target.files];
+        let new_medias = [...this.state.good.medias, ...event.target.files];
         let new_medias_preview = this.state.good.medias_preview;
         for (var i = 0; i < event.target.files.length; i++) {
             new_medias_preview.push(URL.createObjectURL(event.target.files[i]));
@@ -91,6 +90,8 @@ export default class CreateClass extends React.Component {
         medias_preview.splice(index, 1);
         this.setState({
             good: {
+                price: 0,
+                quantity: 0,
                 medias: medias,
                 medias_preview: medias_preview
             }
@@ -164,12 +165,17 @@ export default class CreateClass extends React.Component {
             formData.append('description', JSON.stringify(outputData.blocks));
             let category_slug = this.state.category.pop();
             formData.append('category_slug', category_slug);
+            this.state.good.medias.map((file, index) => {
+                formData.append('media_' + index, file)
+            });
             this.setState({
                 category: [...this.state.category, category_slug]
             });
             for (let [key, value] of Object.entries(this.state.good)) {
                 formData.append(key, value);
             }
+            formData.delete('medias');
+            formData.append('medias', [this.state.good.medias]);
             authFetch(window.HOST + '/goods/store', {
                 method: 'POST',
                 body: formData
@@ -243,12 +249,24 @@ export default class CreateClass extends React.Component {
                                 <FormLabel>Цена*</FormLabel>
                                 {
                                     this.state.errors.hasOwnProperty('price') ?
-                                        <CurrencyInput required={true} name={'price'}
+                                        <CurrencyInput required={true} name='price'
+                                                       onChange={(value, name) => this.setState({
+                                                           good: {
+                                                               ...this.state.good,
+                                                               [name]: value
+                                                           }
+                                                       })}
                                                        className={'form-control is-invalid'} allowDecimals={true}
                                                        decimalsLimit={2} prefix={'₽'}/>
                                         :
-                                        <CurrencyInput required={true} name={'price'} className={'form-control'}
-                                                       allowDecimals={true} decimalsLimit={2} prefix={'₽'}/>
+                                        <CurrencyInput required={true} name='price' className={'form-control'}
+                                                       allowDecimals={true} decimalsLimit={2} prefix={'₽'}
+                                                       onChange={(value, name) => this.setState({
+                                                           good: {
+                                                               ...this.state.good,
+                                                               [name]: value
+                                                           }
+                                                       })}/>
                                 }
                                 <Form.Control.Feedback type='invalid'>{this.state.errors.price}</Form.Control.Feedback>
                             </FormGroup>
@@ -256,10 +274,10 @@ export default class CreateClass extends React.Component {
                                 <FormLabel>Количество</FormLabel>
                                 {
                                     this.state.errors.hasOwnProperty('quantity') ?
-                                        <FormControl onChange={this.onChangeName} isInvalid type={'number'}
+                                        <FormControl onChange={this.onChange} isInvalid type={'number'}
                                                      name={'quantity'}/>
                                         :
-                                        <FormControl onChange={this.onChangeName} type={'number'}
+                                        <FormControl onChange={this.onChange} type={'number'}
                                                      name={'quantity'}/>
                                 }
                                 <FormControl.Feedback
