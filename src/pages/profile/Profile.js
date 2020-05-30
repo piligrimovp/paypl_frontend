@@ -15,7 +15,7 @@ export default function Profile() {
             <Switch>
                 {!useAuth() && <Route path={'/profile'} component={AuthPage} />}
                 {
-                    getUser().seller &&
+                    getUser() && getUser().seller &&
                         <>
                     <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage} />
                     <Route exact={true} path={'/profile/addProduct'} component={CreateProduct}/>

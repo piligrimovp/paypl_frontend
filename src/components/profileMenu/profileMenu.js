@@ -22,7 +22,7 @@ export default function ProfileMenu() {
     });
     const [failSend, setFailSend] = useState({
         status: false,
-        message: ''
+        message: []
     });
 
     const onSubmit = (event?: React.FormEvent) => {
@@ -30,14 +30,14 @@ export default function ProfileMenu() {
             event.preventDefault();
         }
 
-        authFetch(window.HOST + '/request/store', {method: 'POST', body: JSON.stringify(content)})
+        authFetch(window.HOST + '/request/store', {method: 'POST', body: JSON.stringify({content: JSON.stringify(content)}) })
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
                     setSuccessSend(prevState => ({...prevState, status: true}));
                 }
                 if (data.status === 'error') {
-                    setFailSend(prevState => ({...prevState, status: true, message: data.error}));
+                    setFailSend(prevState => ({status: true, message: data.error}));
                 }
                 setShowModal(false);
             }).catch(error => {
