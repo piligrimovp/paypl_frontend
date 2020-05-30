@@ -22,7 +22,7 @@ export default class ProductPage extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        fetch(window.HOST + "/productDetail", {
+        authFetch(window.HOST + "/productDetail", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

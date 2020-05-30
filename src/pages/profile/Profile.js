@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {createAuthProvider} from "../../Entity/AuthProvider";
 import AuthPage from "./auth/AuthPage";
 import ProfilePage from "./profile/ProfilePage";
@@ -12,21 +12,19 @@ export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider()
 
 export default function Profile() {
     return (
-        <Router>
-            <Switch>
-                {!useAuth() && <Route path={'/profile'} component={AuthPage} />}
-                {
-                    getUser() && getUser().seller &&
-                        <>
-                    <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage} />
+        <Switch>
+            {!useAuth() && <Route path={'/profile'} component={AuthPage}/>}
+            {useAuth() && <Route exact={true} path={'/profile'} component={ProfilePage}/>}
+            {
+                getUser() && getUser().seller &&
+                <>
+                    <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage}/>
                     <Route exact={true} path={'/profile/addProduct'} component={CreateProduct}/>
                     <Route exact={true} path={'/profile/products'} component={ProfilePage}/>
                     <Route exact={true} path={'/profile/cart'} component={ProfileCart}/>
-                    </>
-                }
-                <Route exact={true} path={'/profile'} component={ProfilePage} />
-                <Route path={'/'} component={ErrorPath}/>
-            </Switch>
-        </Router>
-        );
+                </>
+            }
+            <Route path={'/'} component={ErrorPath}/>
+        </Switch>
+    );
 }
