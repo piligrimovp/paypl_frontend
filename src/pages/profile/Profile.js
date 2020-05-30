@@ -14,14 +14,16 @@ export default function Profile() {
     return (
         <Switch>
             {!useAuth() && <Route path={'/profile'} component={AuthPage}/>}
-            {useAuth() && <Route exact={true} path={'/profile'} component={ProfilePage}/>}
+            {useAuth() && <>
+                <Route exact={true} path={'/profile'} component={ProfilePage}/>
+                <Route exact={true} path={'/profile/cart'} component={ProfileCart}/>
+            </>}
             {
                 getUser() && getUser().seller &&
                 <>
                     <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage}/>
                     <Route exact={true} path={'/profile/addProduct'} component={CreateProduct}/>
                     <Route exact={true} path={'/profile/products'} component={ProfilePage}/>
-                    <Route exact={true} path={'/profile/cart'} component={ProfileCart}/>
                 </>
             }
             <Route path={'/'} component={ErrorPath}/>

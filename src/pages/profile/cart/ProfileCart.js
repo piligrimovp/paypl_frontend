@@ -1,18 +1,89 @@
 import React from "react";
+import {authFetch} from "../profile/ProfilePage";
+import {Breadcrumb, Button, ButtonToolbar, Card, FormControl, FormGroup, FormLabel} from "react-bootstrap";
+import {LinkContainer} from "react-router-bootstrap";
+import ProfileMenu from "../../../components/profileMenu/profileMenu";
+import {Link} from "react-router-dom";
 
 export default class ProfileCart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            orders: []
         }
     }
 
     componentDidMount(): void {
+        authFetch(window.HOST + '/orders/buyer', {
+            method: 'POST',
+            body: JSON.stringify({
+                status_id: 10
+            })
+        }).then(response => response.json())
+            .then(data => {
+                this.setState({
+                    orders: data
+                })
+            });
+    }
 
+    onChangeQuantity = ({target: {name, value}}: ChangeEvent<HTMLInputElement>,indexOrder,indexGood) => {
+        let orders = this.state.orders;
+        orders[indexOrder].goods[indexGood].pivot.quantity = value;
+        this.setState({
+            orders:orders
+        })
     }
 
     render(): React.ReactNode {
-        return <></>
+        return <>
+            <section className={'container pb-5 p-0'}>
+                <Breadcrumb className={'mb-4'}>
+                    <LinkContainer to={'/'} exact={true}>
+                        <Breadcrumb.Item>Главная</Breadcrumb.Item>
+                    </LinkContainer>
+                    <LinkContainer to={'/'} exact={true}>
+                        <Breadcrumb.Item>Профиль</Breadcrumb.Item>
+                    </LinkContainer>
+                    <Breadcrumb.Item active>Корзина</Breadcrumb.Item>
+                </Breadcrumb>
+                <div className={'row m-0 justify-content-between'}>
+                    <div className={'col-10 px-5'}>
+                        {this.state.orders.map((item, index) => {
+                            return <Card key={index} className={'mt-3'}>
+                                <Card.Body>
+                                    {item.goods.map((good, goodIndex) => {
+                                        return <div className={'row m-0 mt-3'} key={goodIndex}>
+                                            <div className={'col-12'}>
+                                                <FormGroup>
+                                                    <FormLabel>Товар</FormLabel>
+                                                    <Link className={'form-control'}
+                                                            to={`/catalog/${good.category.slug}/${good.slug}`}>{good.name}</Link>
+                                                </FormGroup>
+                                            </div>
+
+                                            <FormGroup>
+                                                <FormLabel>Количество - {good.pivot.quantity}</FormLabel>
+                                                <FormControl type={'range'} name={'quantity'} min={1}
+                                                             max={good.is_unlimited ? 50 : good.quantity}
+                                                             value={good.pivot.quantity}
+                                                             onChange={e => this.onChangeQuantity(e, index,goodIndex)}/>
+                                            </FormGroup>
+                                        </div>
+                                    })}
+                                    <ButtonToolbar className={'d-flex justify-content-end mt-2   '}>
+                                        <Button variant="success">
+                                            Оплатить</Button>
+                                        <Button variant="danger" className={'ml-3'}>
+                                            Удалить</Button>
+                                    </ButtonToolbar>
+                                </Card.Body>
+                            </Card>
+                        })}
+                    </div>
+                    <ProfileMenu/>
+                </div>
+            </section>
+        </>
     }
 }

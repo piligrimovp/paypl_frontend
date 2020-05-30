@@ -4,7 +4,7 @@ import ErrorPath from "../../../components/Errors/ErrorPath/ErrorPath";
 import {createAuthProvider} from "../../../Entity/AuthProvider";
 import Sellers from "./sellers/Sellers";
 
-export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider();
+export const {authFetch, login, getUser} = createAuthProvider();
 
 export default function Profile() {
     return (

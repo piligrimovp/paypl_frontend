@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import HeaderMenu from "./components/HeaderMenu/HeaderMenu";
 import logo from './media/pp258.png'
 import {
@@ -17,6 +17,18 @@ import {Link} from "react-router-dom";
 export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider();
 
 export default function Header() {
+    const [cart, setCart] = useState(0);
+
+    authFetch(window.HOST + '/orders/buyer', {
+        method: 'POST',
+        body: JSON.stringify({
+            status_id: 10
+        })
+    }).then(response => response.json())
+        .then(data => {
+            setCart(data.length)
+        });
+
     return (
         <header>
             <Navbar bg={'gradient07'} expand={'lg'} className={'p-0'}>
@@ -33,17 +45,17 @@ export default function Header() {
                         </Button>
                     </Form>
                     <Nav className={'mx-4'}>
-                        <Nav.Link className={'notification notification__favourites mx-3 lg'} href={''}>
+                        {/*<Nav.Link className={'notification notification__favourites mx-3 lg'} href={''}>
                             <span aria-hidden={true} className={'glyphicon glyphicon-heart'}/>
                             <Badge className={'badge-primary rounded-circle'}>2</Badge>
-                        </Nav.Link>
+                        </Nav.Link>*/}
                         <Nav.Link className={'notification notification__messages mx-3'} href={''}>
                             <span aria-hidden={true} className={'glyphicon glyphicon-envelope'}/>
                             <Badge className={'badge-primary rounded-circle'}>2</Badge>
                         </Nav.Link>
-                        <Nav.Link className={'notification notification__cart mx-3'} href={''}>
+                        <Nav.Link as={Link} className={'notification notification__cart mx-3'} to={'/profile/cart'}>
                             <span aria-hidden={true} className={'glyphicon glyphicon-shopping-cart'}/>
-                            <Badge className={'badge-primary rounded-circle'}>2</Badge>
+                            <Badge className={'badge-primary rounded-circle'}>{cart}</Badge>
                         </Nav.Link>
                     </Nav>
                     {
@@ -55,9 +67,10 @@ export default function Header() {
                                     </span>
                             </Link>
                             :
-                            <DropdownButton placement={'bottom'} variant={'primary text-left btn-profile no-dropdown-toggle-content'} title={
-                                                <span data-toggle="tooltip" data-placement="left"
-                                                         title={getUser().name}>
+                            <DropdownButton placement={'bottom'}
+                                            variant={'primary text-left btn-profile no-dropdown-toggle-content'} title={
+                                <span data-toggle="tooltip" data-placement="left"
+                                      title={getUser().name}>
                                                     {getUser().name}
                                                 </span>} id={'profile_dropdown'}>
                                 <Dropdown.Item as={'div'} className={'p-0'}>

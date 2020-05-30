@@ -8,7 +8,7 @@ import EditPassword from "../../../components/Edit/EditPassword";
 import ProfileMenu from "../../../components/profileMenu/profileMenu";
 import Orders from "../../../components/Orders/Orders";
 
-export const {logout,getUser, updateUser, getUserDetail, authFetch} = createAuthProvider();
+export const {getUser, updateUser, authFetch} = createAuthProvider();
 
 export default class ProfilePage extends React.Component {
     constructor(props) {
