@@ -67,7 +67,7 @@ export default function Register() {
             <h3>Регистрация</h3>
             { errorRegister.status && <Alert variant={'danger'}>{errorRegister.message}</Alert>}
             {loading && <ProgressBar isAnimating={loading}/>}
-            <Form onSubmit={onRegister} noValidate >
+            <Form onSubmit={onRegister}>
                 <Form.Group controlId={'name'}>
                     <Form.Label>Имя*</Form.Label>
                     {

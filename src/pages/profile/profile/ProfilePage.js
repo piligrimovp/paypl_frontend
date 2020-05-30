@@ -14,6 +14,9 @@ export const {logout,getUser, updateUser, getUserDetail, authFetch} = createAuth
 export default class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            user: {}
+        }
     }
 
     componentDidMount()
@@ -21,7 +24,9 @@ export default class ProfilePage extends React.Component {
         authFetch(window.HOST + '/profile/detail',{method:'POST'})
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                if (data.status === 'success') {
+                    this.setState({user: data.data})
+                }
             });
     }
 
@@ -43,8 +48,14 @@ export default class ProfilePage extends React.Component {
                             <div className={'col-9'}>
                                 <div className={'row'}>
                                     <EditField saveFunction={updateUser} name={'name'} label={'Имя:'} type={'text'} text={getUser().name} />
-                                    <EditField saveFunction={updateUser} name={'login'} label={'Логин:'} type={'text'} text={''} />
-                                    <EditField saveFunction={updateUser} name={'login'} label={'Email:'} type={'email'} text={''} />
+                                    {
+                                        this.state.user.login &&
+                                        <EditField saveFunction={updateUser} name={'login'} label={'Логин:'} type={'text'} text={this.state.user.login} />
+                                    }
+                                    {
+                                        this.state.user.email &&
+                                        <EditField saveFunction={updateUser} name={'email'} label={'Email:'} type={'email'} text={this.state.user.email} />
+                                    }
                                     <EditPassword name={'password'} saveFunction={()=>{}}/>
                                 </div>
                             </div>

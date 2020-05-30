@@ -191,7 +191,7 @@ export default class CreateClass extends React.Component {
                     if (data.status === 'error') {
                         this.setState({
                             loading: false,
-                            errors: data.error.id
+                            errors: data.error
                         })
                     }
                 })

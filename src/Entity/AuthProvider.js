@@ -30,11 +30,11 @@ export const createTokenProvider = () => {
         if (!_token) {
             return null;
         }
-        //ToDo: не реализовано
-        if (isExpired(getExpirationDate(_token.accessToken))) {
+
+        if (isExpired(getExpirationDate(_token))) {
             const updatedToken = await fetch(window.HOST + '/profile/updateToken', {
                 method: 'POST',
-                body: _token.refreshToken
+                body: _token
             })
                 .then(r => r.json());
 
@@ -167,6 +167,6 @@ export const createAuthProvider = () => {
         logout,
         getUser,
         updateUser,
-        getUserDetail
+        getUserDetail,
     }
 };
