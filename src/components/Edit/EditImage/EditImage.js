@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EditField from "../EditField/EditField";
 import {Button, ButtonGroup, Form, Image, OverlayTrigger, Tooltip} from "react-bootstrap";
 
 class EditImage extends React.Component {

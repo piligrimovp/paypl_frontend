@@ -11,6 +11,7 @@ import './settings';
 import ProductPage from "./pages/product/ProductPage";
 import AboutPage from "./pages/about/AboutPage";
 import Profile from "./pages/profile/Profile";
+import AdminProfile from "./pages/profile/admin/AdminProfile";
 
 ReactDOM.render(
     <>
@@ -24,6 +25,7 @@ ReactDOM.render(
                     <Route exact path={'/catalog'} component={MainPage}/>
                     <Route exact path={'/about'} component={AboutPage}/>
                     <Route path={'/profile'} component={Profile} />
+                    <Route path={'/admin'} component={AdminProfile} />
                     <Route path={'/'} component={ErrorPath}/>
                 </Switch>
             </main>

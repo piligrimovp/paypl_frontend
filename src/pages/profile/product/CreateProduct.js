@@ -43,17 +43,7 @@ export default class CreateClass extends React.Component {
     componentDidMount(): void {
         this.editor = new EditorJS({
             holder: 'js-editor',
-            tools: {
-                table: Table,
-                paragraph: Paragraph,
-                header: Header,
-                quote: Quote,
-                marker: Marker,
-                checklist: CheckList,
-                delimiter: Delimiter,
-                inlineCode: InlineCode,
-                simpleImage: SimpleImage
-            }
+            tools: window.TOOLS
         })
         fetch(window.HOST + "/categoryMap", {
             method: 'POST'
@@ -105,12 +95,12 @@ export default class CreateClass extends React.Component {
                 <tbody>
                 {categories.map((item, index) => {
                     {
-                        if (item.slug == this.state.category[i] && item.children.length > 0) {
+                        if (item.slug === this.state.category[i] && item.children.length > 0) {
                             nextCategories = item.children
                         }
                     }
                     return <tr key={index}>
-                        {item.slug == this.state.category[i] ?
+                        {item.slug === this.state.category[i] ?
                             <td className={'td_active'} onClick={() => this.selectCategory(item.slug, i)}>
                                 {item.name}</td>
                             :
@@ -167,6 +157,7 @@ export default class CreateClass extends React.Component {
             formData.append('category_slug', category_slug);
             this.state.good.medias.map((file, index) => {
                 formData.append('media_' + index, file)
+                return true;
             });
             this.setState({
                 category: [...this.state.category, category_slug]

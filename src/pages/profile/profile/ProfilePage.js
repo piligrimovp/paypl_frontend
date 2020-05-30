@@ -1,9 +1,8 @@
 import React from "react";
 import {createAuthProvider} from "../../../Entity/AuthProvider";
-import {Accordion, Breadcrumb, Button, ButtonToolbar, Card, Form, Image} from "react-bootstrap";
+import {Breadcrumb} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
 import EditField from "../../../components/Edit/EditField/EditField";
-import {Link} from "react-router-dom";
 import EditImage from "../../../components/Edit/EditImage/EditImage";
 import EditPassword from "../../../components/Edit/EditPassword";
 import ProfileMenu from "../../../components/profileMenu/profileMenu";

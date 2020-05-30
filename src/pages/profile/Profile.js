@@ -6,6 +6,7 @@ import ProfilePage from "./profile/ProfilePage";
 import ProfileSellerPage from "./seller/ProfileSellerPage";
 import CreateProduct from "./product/CreateProduct";
 import ErrorPath from "../../components/Errors/ErrorPath/ErrorPath";
+import ProfileCart from "./cart/ProfileCart";
 
 export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider();
 
@@ -20,6 +21,7 @@ export default function Profile() {
                     <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage} />
                     <Route exact={true} path={'/profile/addProduct'} component={CreateProduct}/>
                     <Route exact={true} path={'/profile/products'} component={ProfilePage}/>
+                    <Route exact={true} path={'/profile/cart'} component={ProfileCart}/>
                     </>
                 }
                 <Route exact={true} path={'/profile'} component={ProfilePage} />

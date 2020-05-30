@@ -3,6 +3,7 @@ import Goods from '../../Entity/Goods';
 import ProgressBar from "../PropgressBar/PropgressBar";
 import ErrorLoading from "../Errors/ErrorLoading/ErrorLoading";
 import {Link} from "react-router-dom";
+import EditorJS from "react-editor-js";
 
 export default function GBlockGoodsLarge(props) {
     const [pageNumber, setPageNumber] = useState(1);
@@ -20,6 +21,15 @@ export default function GBlockGoodsLarge(props) {
         if (node) observer.current.observe(node)
     }, [loading, hasMore]);
 
+    const isJson = (item) => {
+        try{
+            JSON.parse(item);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
     return (
         <div className="g-large-block row justify-content-between m-0">
             {loading && <ProgressBar isAnimating={loading}/>}
@@ -36,7 +46,13 @@ export default function GBlockGoodsLarge(props) {
                         </div>
                     </div>
                     <div className="goods-medium_description">
-                        <span className="tiny-text">{good.description}</span>
+                        <span className="tiny-text">
+                            {console.log(good.description)}
+                            {!isJson(good.description) && good.description}
+                        </span>
+                        {isJson(good.description) &&
+                        <> <EditorJS holder={'editor-'+index} tools={window.TOOLS} data={{blocks:JSON.parse(good.description)}}/>
+                        <div id={'editor-'+index} /></>}
                     </div>
                 </>;
                 let goodBlock = null;
