@@ -23,7 +23,7 @@ ReactDOM.render(
                     <Route exact path={'/'} component={MainPage}/>
                     <Route path={'/catalog/:category/:product'} component={() => <ProductPage slug={useParams().product}/>}/>
                     <Route path={'/catalog/:category'} component={CategoryPage}/>
-                    <Route exact path={'/catalog'} component={MainPage}/>
+                    <Route exact path={'/catalog'} component={CategoryPage}/>
                     <Route exact path={'/about'} component={AboutPage}/>
                     <Route path={'/profile'} component={Profile} />
                     <Route path={'/admin'} component={AdminProfile} />

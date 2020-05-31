@@ -118,7 +118,7 @@ export default class ProfileCart extends React.Component {
                     <LinkContainer to={'/'} exact={true}>
                         <Breadcrumb.Item>Главная</Breadcrumb.Item>
                     </LinkContainer>
-                    <LinkContainer to={'/'} exact={true}>
+                    <LinkContainer to={'/profile'} exact={true}>
                         <Breadcrumb.Item>Профиль</Breadcrumb.Item>
                     </LinkContainer>
                     <Breadcrumb.Item active>Корзина</Breadcrumb.Item>
