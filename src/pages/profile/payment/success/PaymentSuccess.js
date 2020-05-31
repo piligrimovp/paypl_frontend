@@ -1,5 +1,5 @@
 import React from "react";
-import {Alert, Button, ButtonToolbar} from "react-bootstrap";
+import {Alert, ButtonToolbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import qs from "qs";
 
@@ -25,6 +25,7 @@ export default function PaymentSuccess(props) {
                                 <div className={'row m-0 p-0'}>
                                     <ButtonToolbar>
                                         <Link to={'/profile/cart'} className={'btn btn-info'}>Корзина</Link>
+                                        <Link to={'/profile'} className={'btn btn-info'}>Заказы</Link>
                                         <Link to={'/'} className={'btn btn-info ml-5'}>Продолжить покупки</Link>
                                     </ButtonToolbar>
                                 </div>

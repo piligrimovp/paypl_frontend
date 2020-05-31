@@ -42,20 +42,23 @@ export default class ProfilePage extends React.Component {
                     <div className={'col-10 p-0'}>
                         <div className={'row'}>
                             <div className={'col-3 profile-avatar'}>
-                                <EditImage name={'avatar'} circle={true} value={getUser().avatar} saveFunction={()=> {}} />
+                                <EditImage name={'avatar'} circle={true} value={getUser().avatar} saveFunction={updateUser} />
                             </div>
                             <div className={'col-9'}>
                                 <div className={'row'}>
                                     <EditField saveFunction={updateUser} name={'name'} label={'Имя:'} type={'text'} text={getUser().name} />
                                     {
                                         this.state.user.login &&
-                                        <EditField saveFunction={updateUser} name={'login'} label={'Логин:'} type={'text'} text={this.state.user.login} />
+                                        <EditField saveFunction={updateUser} name={'login'} label={'Логин:'}
+                                                   type={'text'} text={this.state.user.login}
+                                        />
                                     }
                                     {
                                         this.state.user.email &&
-                                        <EditField saveFunction={updateUser} name={'email'} label={'Email:'} type={'email'} text={this.state.user.email} />
+                                        <EditField saveFunction={updateUser} name={'email'} label={'Email:'}
+                                                   type={'email'} text={this.state.user.email} />
                                     }
-                                    <EditPassword name={'password'} saveFunction={()=>{}}/>
+                                    <EditPassword/>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ class EditField extends Component {
         this.state = {
             edit: false,
             text: props.text,
-            errors: []
+            errors: {}
         }
     }
 
@@ -19,7 +19,16 @@ class EditField extends Component {
     save = () => {
         if (this.state.text !== this.props.text) {
             this.props.saveFunction(this.props.name, this.state.text)
-                .then(this.setState({edit: false}));
+                .then(data => {
+                    if (data.status === 'success') {
+                        this.setState({edit: false})
+                    }
+                    if (data.status === 'error') {
+                        this.setState({
+                            errors: data.error
+                        })
+                    }
+                });
         } else {
             this.setState({edit: false})
         }
@@ -33,12 +42,13 @@ class EditField extends Component {
                     <Form.Group>
                         {
                             <InputGroup className={'w-75'}>
-                                {this.state.errors.length > 0 ?
+                                {this.state.errors.hasOwnProperty(this.props.name) ?
                                     <Form.Control name={this.props.name} value={this.state.text} isInvalid
                                                   onChange={this.onChange} type={this.props.type}/>
                                     : <Form.Control name={this.props.name} value={this.state.text}
                                                     onChange={this.onChange} type={this.props.type}/>
                                 }
+                                <Form.Control.Feedback type='invalid'>{this.state.errors[this.props.name]}</Form.Control.Feedback>
                                 <InputGroup.Append>
                                     <OverlayTrigger
                                         overlay={
@@ -61,7 +71,6 @@ class EditField extends Component {
                                 </InputGroup.Append>
                             </InputGroup>
                         }
-                        <Form.Control.Feedback type='invalid'>{this.state.errors}</Form.Control.Feedback>
                     </Form.Group>
                 </div>
             </>);

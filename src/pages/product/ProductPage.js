@@ -4,8 +4,9 @@ import {Alert, Badge, Button, ButtonToolbar, Carousel, OverlayTrigger, Tooltip} 
 import ProgressBar from "../../components/PropgressBar/PropgressBar";
 import EditorJS from "react-editor-js";
 import {createAuthProvider} from "../../Entity/AuthProvider";
+import {Link} from "react-router-dom";
 
-export const {authFetch} = createAuthProvider();
+export const {authFetch, getUser} = createAuthProvider();
 
 export default class ProductPage extends Component {
     constructor(props) {
@@ -127,9 +128,11 @@ export default class ProductPage extends Component {
                         {/*
                                 ToDo: не работает кнопка в корзину
                             */}
-                        {!this.state.product.in_order &&
+                        {!this.state.product.in_order && getUser() &&
                         <Button type={'button'} variant={'outline-primary btn-block'}
                                 onClick={this.addCart}>В корзину</Button>}
+                        {!this.state.product.in_order && !getUser() &&
+                        <Link className={'btn btn-outline-primary btn-block'} to={'/profile'}>В корзину</Link>}
                         {/*
                                 ToDo: не работает кнопка написать продавцу
                             */}

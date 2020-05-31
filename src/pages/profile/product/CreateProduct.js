@@ -85,10 +85,8 @@ export default class CreateClass extends React.Component {
             <table className="table table-bordered d-inline table-custom">
                 <tbody>
                 {categories.map((item, index) => {
-                    {
-                        if (item.slug === this.state.category[i] && item.children.length > 0) {
-                            nextCategories = item.children
-                        }
+                    if (item.slug === this.state.category[i] && item.children.length > 0) {
+                        nextCategories = item.children
                     }
                     return <tr key={index}>
                         {item.slug === this.state.category[i] ?

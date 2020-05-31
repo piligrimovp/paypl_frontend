@@ -21,7 +21,16 @@ class EditImage extends React.Component {
     save = () => {
         if (this.state.src !== this.props.value) {
             this.props.saveFunction(this.props.name, this.state.value)
-                .then(this.setState({edit: false}));
+                .then(data => {
+                    if (data.status === 'success') {
+                        this.setState({edit: false})
+                    }
+                    if (data.status === 'error') {
+                        this.setState({
+                            errors: data.error
+                        })
+                    }
+                });
         } else {
             this.setState(this.initialState(this.props))
         }

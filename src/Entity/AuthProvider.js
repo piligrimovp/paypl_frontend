@@ -157,7 +157,22 @@ export const createAuthProvider = () => {
     }
 
     const updateUser = (name: string, value: string) => {
-
+        let formData = new FormData();
+        formData.append(name,value);
+        return authFetch(window.HOST + "/users/update",{
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    let user = getUser();
+                    if (user.hasOwnProperty(name)) {
+                        user[name] = data.data[name];
+                        tokenProvider.setUser(user);
+                    }
+                }
+                return data
+            });
     }
 
     return {

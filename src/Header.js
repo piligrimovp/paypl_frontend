@@ -19,15 +19,17 @@ export const {useAuth, authFetch, login, logout, getUser} = createAuthProvider()
 export default function Header() {
     const [cart, setCart] = useState(0);
 
-    authFetch(window.HOST + '/orders/buyer', {
-        method: 'POST',
-        body: JSON.stringify({
-            status_id: 10
-        })
-    }).then(response => response.json())
-        .then(data => {
-            setCart(data.length)
-        });
+    if(useAuth()) {
+        authFetch(window.HOST + '/orders/buyer', {
+            method: 'POST',
+            body: JSON.stringify({
+                status_id: 10
+            })
+        }).then(response => response.json())
+            .then(data => {
+                setCart(data.length)
+            });
+    }
 
     return (
         <header>
