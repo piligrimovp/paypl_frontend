@@ -19,6 +19,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "prop-types": "^15.7.2",
+    "qs": "^6.9.4",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.1",
     "react-currency-input-field": "^1.0.1",

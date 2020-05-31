@@ -35,7 +35,7 @@ export default class ProfileCart extends React.Component {
                     message: 'Ошибка при загрузке корзины'
                 }
             })
-        });
+        })
     }
 
     onChangeQuantity = ({target: {name, value}}: ChangeEvent<HTMLInputElement>, indexOrder, indexGood) => {
@@ -46,29 +46,30 @@ export default class ProfileCart extends React.Component {
         })
     }
 
-    BuyOrder = (order,index) => {
+    BuyOrder = (order, index) => {
         this.setState({
             error: {
                 status: false,
                 message: ''
             }
         })
-        authFetch(window.HOST + '/orders', {
+        authFetch(window.HOST + '/orders/payment', {
             method: 'POST',
             body: JSON.stringify({
-                order: JSON.stringify(order)
+                order: order
             })
         }).then(response => {
-            if (response.status === 404) {
-                this.setError('Ошибка при попытке оплаты')
+            if (response.status >= 200 && response.status < 300) {
+                return response.json()
             } else {
-                let orders = this.state.orders;
-                orders.splice(index, 1);
-                this.setState({
-                    orders: orders
-                });
+                this.setError('Ошибка при попытке оплаты')
             }
-        }).catch(e => {
+        })
+            .then(data => {
+                if (data.hasOwnProperty('url')) {
+                    window.location.href = data.url;
+                }
+            }).catch(e => {
             this.setError('Ошибка при попытке оплаты')
         })
     }

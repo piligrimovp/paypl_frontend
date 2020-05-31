@@ -47,7 +47,6 @@ export default function GBlockGoodsLarge(props) {
                     </div>
                     <div className="goods-medium_description">
                         <span className="tiny-text">
-                            {console.log(good.description)}
                             {!isJson(good.description) && good.description}
                         </span>
                         {isJson(good.description) &&

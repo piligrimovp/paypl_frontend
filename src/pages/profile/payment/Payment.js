@@ -1,15 +1,13 @@
 import React from "react";
-import {Switch} from "react-bootstrap";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import ErrorPath from "../../../components/Errors/ErrorPath/ErrorPath";
 import PaymentSuccess from "./success/PaymentSuccess";
+import PaymentFail from "./fail/PaymentFail";
 
 export default function Payment() {
-    return <>
-        <Switch>
+    return <Switch>
             <Route path={'/payment/success'} component={PaymentSuccess} />
-            <Route path={'/payment/error'} component={PaymentSuccess} />
+            <Route path={'/payment/fail'} component={PaymentFail} />
             <Route path={'/'} component={ErrorPath}/>
         </Switch>
-    </>
 }
