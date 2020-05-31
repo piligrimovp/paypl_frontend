@@ -56,7 +56,7 @@ export default class ProfileCart extends React.Component {
         authFetch(window.HOST + '/orders', {
             method: 'POST',
             body: JSON.stringify({
-                id: order.id
+                order: JSON.stringify(order)
             })
         }).then(response => {
             if (response.status === 404) {
