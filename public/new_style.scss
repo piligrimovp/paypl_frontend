@@ -351,3 +351,15 @@ div {
     margin-bottom: 10px;
   }
 }
+
+.custom-tooltip {
+  opacity: 0.8;
+  background-color: $white;
+  padding: 0 7px 0 7px;
+  border-radius: 3px;
+  border: 1px solid $gray-300;
+
+  p {
+    margin: 0;
+  }
+}
