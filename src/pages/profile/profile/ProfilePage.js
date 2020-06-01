@@ -14,7 +14,8 @@ export default class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {}
+            user: {},
+            orders: []
         }
     }
 
@@ -26,6 +27,16 @@ export default class ProfilePage extends React.Component {
                 if (data.status === 'success') {
                     this.setState({user: data.data})
                 }
+            });
+        authFetch(window.HOST + '/orders/buyer',{
+            method:'POST',
+            body: JSON.stringify({status_id: [12,13]})
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    orders: [...this.state.orders, ...data]
+                })
             });
     }
 
@@ -63,7 +74,7 @@ export default class ProfilePage extends React.Component {
                             </div>
                         </div>
                         <div className={'row mt-5 justify-content-center w-auto'}>
-                            <Orders  />
+                            <Orders orders={this.state.orders} />
                         </div>
                     </div>
                     <ProfileMenu/>

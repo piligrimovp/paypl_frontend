@@ -21,7 +21,7 @@ export default function GBlockGoods(props) {
     }, [loading, hasMore]);
 
     return (
-        <div className="col shadow-sm text-center m-1 p-3">
+        <div className="col g-block text-center m-1 p-3">
             <h3>{props.title}</h3>
             <div className="g-block_goods row justify-content-between">
                 {loading && <ProgressBar isAnimating={loading}/>}
@@ -32,9 +32,9 @@ export default function GBlockGoods(props) {
                         <div className="goods-small_info d-inline-block">
                             <span className="medium-label" data-toggle="tooltip" data-placement="bottom"
                                   title={good.name}>
-                                {good.name}
+                                <b>{good.name}</b>
                             </span>
-                            <span className="medium-label">{good.price}, руб.</span>
+                            <span className="medium-label">{good.price} руб.</span>
                         </div>
                     </>;
                     let goodBlock = null;

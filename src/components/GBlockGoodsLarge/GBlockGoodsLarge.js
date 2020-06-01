@@ -40,9 +40,9 @@ export default function GBlockGoodsLarge(props) {
                         <div className="goods-medium_info d-inline-block">
                             <span className="medium-label" data-toggle="tooltip" data-placement="bottom"
                                   title={good.name}>
-                                {good.name}
+                                <b>{good.name}</b>
                             </span>
-                            <span className="medium-label">{good.price}, руб.</span>
+                            <span className="medium-label">{good.price} руб.</span>
                         </div>
                     </div>
                     <div className="goods-medium_description">
@@ -64,7 +64,7 @@ export default function GBlockGoodsLarge(props) {
                         {body}
                     </div>;
                 }
-                return <Link key={good.slug} className={'btn-link'}
+                return <Link key={good.slug} className={'btn-link g-block mb-3'}
                              to={'catalog/' + good.category_slug + '/' + good.slug}>
                     {goodBlock}
                 </Link>

@@ -7885,6 +7885,15 @@ body, html {
   overflow: auto;
   position: relative; }
 
+.g-block {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8; }
+
+.g-large-block {
+  border-radius: 4px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8; }
+
 .goods-small {
   width: 180px !important;
   height: 80px;
