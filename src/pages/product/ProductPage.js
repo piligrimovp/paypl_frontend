@@ -136,7 +136,7 @@ export default class ProductPage extends Component {
                     {render_badge()}
                     {getUser() && getUser().seller && getUser().id === this.state.product.user_id
                     && <SellerMenu product={this.state.product} />}
-                    {(!getUser() || (getUser().seller && getUser().id !== this.state.product.user_id))
+                    {(!getUser() || (getUser().seller && getUser().id !== this.state.product.user_id) || getUser())
                     && <UserMenu product={this.state.product}/>}
                     {getUser() && getUser().is_admin && <AdminMenu product={this.state.product} />}
                 </div>

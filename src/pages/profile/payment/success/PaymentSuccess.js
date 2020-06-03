@@ -44,7 +44,7 @@ export default class PaymentSuccess extends React.Component {
                 })
             } else {
                 this.setState({
-                    loading: true
+                    loading: false
                 })
             }
         }).catch(e => {
