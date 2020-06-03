@@ -16,29 +16,17 @@ export default class PaymentFail extends React.Component {
 
     repeatPayment = () => {
         let data = qs.parse(this.props.location.search, {ignoreQueryPrefix: true});
-        authFetch(window.HOST + '/orders/update', {
+        authFetch(window.HOST + '/orders/retry_payment', {
             method: 'POST',
             body: JSON.stringify({
-                status_id: 12,
-                key: data.SignatureValue,
-                sum: data.OutSum,
+                id: data.InvId
             })
         }).then(response => response.json()).then(data => {
-            if (data.status === 'error') {
-                this.setState({
-                    result: false,
-                    message: data.error,
-                    loading: false
-                })
-            } else {
-                this.setState({
-                    loading: false
-                })
-            }
+            window.location.href = data.url;
         }).catch(e => {
             this.setState({
                 result: false,
-                message: 'Ошибка при попытке проверить данные платежа',
+                message: 'Ошибка при попытке повторить платеж',
                 loading: false
             })
         })

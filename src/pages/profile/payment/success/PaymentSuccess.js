@@ -32,8 +32,7 @@ export default class PaymentSuccess extends React.Component {
             method: 'POST',
             body: JSON.stringify({
                 status_id: 12,
-                key: data.SignatureValue,
-                sum: data.OutSum,
+                id: data.InvId
             })
         }).then(response => response.json()).then(data => {
             if (data.status === 'error') {
