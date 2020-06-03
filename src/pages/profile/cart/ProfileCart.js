@@ -1,6 +1,17 @@
 import React from "react";
 import {authFetch} from "../profile/ProfilePage";
-import {Alert, Breadcrumb, Button, ButtonToolbar, Card, FormControl, FormGroup, FormLabel} from "react-bootstrap";
+import {
+    Alert,
+    Breadcrumb,
+    Button,
+    ButtonToolbar,
+    Card,
+    Col, Form,
+    FormControl,
+    FormGroup,
+    FormLabel,
+    Row
+} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
 import ProfileMenu from "../../../components/profileMenu/profileMenu";
 import {Link} from "react-router-dom";
@@ -132,21 +143,48 @@ export default class ProfileCart extends React.Component {
                                 <Card.Body>
                                     {item.goods.map((good, goodIndex) => {
                                         return <div className={'row m-0 mt-3'} key={goodIndex}>
-                                            <div className={'col-12'}>
-                                                <FormGroup>
-                                                    <FormLabel>Товар</FormLabel>
-                                                    <Link className={'form-control'}
-                                                          to={`/catalog/${good.category.slug}/${good.slug}`}>{good.name}</Link>
-                                                </FormGroup>
-                                            </div>
-
-                                            <FormGroup>
-                                                <FormLabel>Количество - {good.pivot.quantity}</FormLabel>
-                                                <FormControl type={'range'} name={'quantity'} min={1}
-                                                             max={good.is_unlimited ? 50 : good.quantity}
-                                                             value={good.pivot.quantity}
-                                                             onChange={e => this.onChangeQuantity(e, index, goodIndex)}/>
-                                            </FormGroup>
+                                            <Form  className={'w-100'}>
+                                                <Row>
+                                                    <Col>
+                                                        <h2>
+                                                            <Link to={`/catalog/${good.category.slug}/${good.slug}`}>
+                                                                {good.name}</Link>
+                                                        </h2>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <FormGroup>
+                                                            <FormLabel>Количество - {good.pivot.quantity}</FormLabel>
+                                                            <FormControl type={'range'} name={'quantity'} min={1}
+                                                                         max={good.is_unlimited ? 50 : good.quantity}
+                                                                         value={good.pivot.quantity}
+                                                                         onChange={e => this.onChangeQuantity(e, index, goodIndex)}/>
+                                                        </FormGroup>
+                                                    </Col>
+                                                    <Col className={'align-items-center d-flex'}>
+                                                        <h5>
+                                                            Цена - {good.pivot.price_current} руб.
+                                                        </h5>
+                                                    </Col>
+                                                    <Col className={'align-items-center d-flex'}>
+                                                        <h5>
+                                                            Итоговая стоимость - {(good.pivot.quantity
+                                                            * good.pivot.price_current).toFixed(2)} руб.
+                                                        </h5>
+                                                    </Col>
+                                                    {
+                                                        good.discount > 0 && <Col className={'align-items-center d-flex'}>
+                                                            <h5>
+                                                                Cкидка - {
+                                                                (good.pivot.quantity * good.price).toFixed(2) -
+                                                                (good.pivot.quantity * good.pivot.price_current).toFixed(2)
+                                                            } руб.
+                                                            </h5>
+                                                        </Col>
+                                                    }
+                                                </Row>
+                                            </Form>
                                         </div>
                                     })}
                                     <ButtonToolbar className={'d-flex justify-content-end mt-2   '}>

@@ -7982,7 +7982,7 @@ body, html {
 
 .main {
   flex: 1;
-  position: relative; }
+  position: sticky; }
 
 div {
   box-sizing: border-box !important; }
@@ -8071,5 +8071,39 @@ div {
   border: 1px solid #dee2e6; }
   .custom-tooltip p {
     margin: 0; }
+
+.alert_toast {
+  z-index: 2;
+  position: fixed;
+  right: 10px;
+  min-width: 150px; }
+
+.alert_toast-success {
+  background-color: honeydew; }
+
+.alert_toast-error {
+  background-color: lightpink; }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
+.async-spinner {
+  content: 'Loading...';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin: auto;
+  width: 80px;
+  height: 80px; }
+  .async-spinner:not(:required) {
+    content: '';
+    border-radius: 50%;
+    border: 2px solid gray;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: spinner 1s linear infinite; }
 
 /*# sourceMappingURL=new_style.css.map */

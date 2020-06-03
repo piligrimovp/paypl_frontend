@@ -5,6 +5,10 @@ import ProgressBar from "../../components/PropgressBar/PropgressBar";
 import EditorJS from "react-editor-js";
 import {createAuthProvider} from "../../Entity/AuthProvider";
 import {Link} from "react-router-dom";
+import Alerts from "../../components/Alerts/Alerts";
+import UserMenu from "./menu/UserMenu";
+import SellerMenu from "./menu/SellerMenu";
+import AdminMenu from "./menu/AdminMenu";
 
 export const {authFetch, getUser} = createAuthProvider();
 
@@ -14,10 +18,7 @@ export default class ProductPage extends Component {
         this.state = {
             product: [],
             loading: false,
-            error: {
-                status: false,
-                message: ''
-            }
+            alerts: []
         };
     }
 
@@ -38,6 +39,18 @@ export default class ProductPage extends Component {
                     loading: false,
                     product: typeof data === "object" ? data : []
                 })
+            })
+            .catch(error => {
+                this.setState({
+                    alerts: [
+                        ...this.state.alerts,
+                        {
+                            text: 'Ошибка подключения',
+                            status: 'error',
+                            close: true
+                        }
+                    ]
+                })
             });
     }
 
@@ -48,44 +61,6 @@ export default class ProductPage extends Component {
         } catch (e) {
             return false;
         }
-    }
-
-    addCart = () => {
-        this.setState({
-            error: {
-                ...this.state.error,
-                status: false
-            }
-        })
-        authFetch(window.HOST + "/orders/store", {
-            method: "POST",
-            body: JSON.stringify({slug: this.state.product.slug})
-        }).then(respone => respone.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    this.setState({
-                        product: {
-                            ...this.state.product,
-                            in_order: true
-                        }
-                    });
-                }
-                if (data.status === 'error') {
-                    this.setState({
-                        error: {
-                            status: true,
-                            message: 'Ошибка добавления'
-                        }
-                    })
-                }
-            }).catch(error => {
-            this.setState({
-                error: {
-                    status: true,
-                    message: 'Ошибка добавления'
-                }
-            })
-        })
     }
 
     renderProduct() {
@@ -102,7 +77,7 @@ export default class ProductPage extends Component {
                                         </Tooltip>
                                     }>
                                         <Badge variant={'success'} className={'price'}>
-                                            {this.state.product.discount}, руб
+                                            {this.state.product.discount} руб
                                             <h3 className={'old_price'}>
                                                 <OverlayTrigger placement={'bottom'} overlay={
                                                     <Tooltip id={`tooltip-${this.state.product.price}`}>
@@ -117,28 +92,9 @@ export default class ProductPage extends Component {
                                 </h1>
                             </> :
                             <h1><Badge variant={'light'} className={'price'}>
-                                {this.state.product.price}, руб
+                                {this.state.product.price} руб
                             </Badge></h1>}
                     </div>
-                    <ButtonToolbar className={'w-75'}>
-                        {this.state.product.in_order && <>
-                            <Button type={'button'} disabled variant={'outline-primary btn-block'}>
-                                Товар добавлен в корзину</Button>
-                        </>}
-                        {/*
-                                ToDo: не работает кнопка в корзину
-                            */}
-                        {!this.state.product.in_order && getUser() &&
-                        <Button type={'button'} variant={'outline-primary btn-block'}
-                                onClick={this.addCart}>В корзину</Button>}
-                        {!this.state.product.in_order && !getUser() &&
-                        <Link className={'btn btn-outline-primary btn-block'} to={'/profile'}>В корзину</Link>}
-                        {/*
-                                ToDo: не работает кнопка написать продавцу
-                            */}
-                        <Button type={'button'} variant={'outline-primary btn-block mt-2'}>Написать
-                            продавцу</Button>
-                    </ButtonToolbar>
                 </>
             else {
                 return <div>
@@ -153,9 +109,6 @@ export default class ProductPage extends Component {
 
         let isJson = this.isJson(this.state.product.description);
         return <>
-            {this.state.error.status &&
-            <div className={'row m-0'}><Alert className={'m-auto'} variant={'danger'}>
-                {this.state.error.message}</Alert></div>}
             <div className={'row m-0 p-0 justify-content-between'}>
                 <div className={'col-3 mt-5'}>
                     <Carousel className={'carouselProduct bg-secondary row align-items-center p-0'}>
@@ -181,14 +134,28 @@ export default class ProductPage extends Component {
                 </div>
                 <div className={'col-3 mt-5 p-0'}> {/*Див с ценами и кнопками*/}
                     {render_badge()}
+                    {getUser() && getUser().seller && getUser().id === this.state.product.user_id
+                    && <SellerMenu product={this.state.product} />}
+                    {(!getUser() || (getUser().seller && getUser().id !== this.state.product.user_id))
+                    && <UserMenu product={this.state.product}/>}
+                    {getUser() && getUser().is_admin && <AdminMenu product={this.state.product} />}
                 </div>
             </div>
         </>
             ;
     }
 
+    closeAlert(index) {
+        let alerts = this.state.alerts;
+        alerts.splice(index, 1);
+        this.setState({
+            alerts: alerts
+        })
+    }
+
     render() {
         return <section className={'container p-0'}>
+            <Alerts alerts={this.state.alerts} close={() => this.closeAlert} />
             {this.state.loading && <ProgressBar isAnimating={this.state.loading}/>}
             <BreadcrumbFormatted/>
             {this.renderProduct()}

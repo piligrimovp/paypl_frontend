@@ -4,10 +4,20 @@ import {Link, useParams} from "react-router-dom";
 import {Pagination} from "react-bootstrap";
 import Category from "../../Entity/Category";
 import ProgressBar from "../../components/PropgressBar/PropgressBar";
+import EditorJS from "react-editor-js";
 
 export default function CategoryPage(props) {
     const [pageNumber, setPageNumber] = useState(1);
     const {loading, categories, products, pages} = Category(pageNumber, 48, useParams().category);
+
+    const isJson = (item) => {
+        try {
+            JSON.parse(item);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
 
     return <>
         <section className={'container-fluid no-gutters p-0'}>
@@ -29,7 +39,7 @@ export default function CategoryPage(props) {
                     {loading && <ProgressBar isAnimating={loading}/>}
                     <div className={'row justify-content-between m-0 w-100'}>
                     {products && products.map((product, index) => {
-                        return <Link key={index} className={'btn-link'}
+                        return <Link key={index} className={'btn-link g-block mb-3'}
                               to={'/catalog/' + product.category_slug + '/' + product.slug}>
                             <div className="goods-medium">
                                 <div className="goods-medium_header">
@@ -39,11 +49,16 @@ export default function CategoryPage(props) {
                                   title={product.name}>
                                 {product.name}
                             </span>
-                                        <span className="medium-label">{product.price}, руб.</span>
+                                        <span className="medium-label">{product.price} руб.</span>
                                     </div>
                                 </div>
                                 <div className="goods-medium_description">
+                                    {isJson(product.description) ?
+                                    <> <EditorJS holder={'editor'} tools={window.TOOLS}
+                                                 data={{blocks:JSON.parse(product.description)}}/>
+                                    <span className="tiny-text" id={'editor'}/></> :
                                     <span className="tiny-text">{product.description}</span>
+                                    }
                                 </div>
                             </div>
                         </Link>

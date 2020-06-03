@@ -5,7 +5,7 @@ import GBlockGoodsLarge from "../../components/GBlockGoodsLarge/GBlockGoodsLarge
 document.title = "PayPlay";
 export default function MainPage() {
     return <>
-        <section className={'container pb-5'}>
+        <section className={'container p-0 pb-5'}>
             <section className={'row m-0 justify-content-between'}>
                 <GBlockGoods title={'Популярное'} mode={'popular'}/>
                 <GBlockGoods title={'Новинки'} mode={'novelty'}/>

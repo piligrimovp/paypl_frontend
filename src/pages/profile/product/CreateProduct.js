@@ -272,7 +272,7 @@ export default class CreateClass extends React.Component {
                                 </div>
                                 {this.state.tax &&
                                 <Alert className={'mt-3'} variant={'secondary'}>
-                                    Комиссия по выбранной категории - <strong>{this.state.tax}%</strong>
+                                    Комиссия по выбранной категории - <strong>{Math.round(this.state.tax * 100)}%</strong>
                                 </Alert>}
                                 {this.state.errors.hasOwnProperty('category_slug') &&
                                 <FormControl type={'text'} className={'d-none'} isInvalid readOnly/>

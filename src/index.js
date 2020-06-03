@@ -19,6 +19,7 @@ import CreateProduct from "./pages/profile/product/CreateProduct";
 import Sellers from "./pages/profile/admin/sellers/Sellers";
 import PaymentSuccess from "./pages/profile/payment/success/PaymentSuccess";
 import PaymentFail from "./pages/profile/payment/fail/PaymentFail";
+import GoodsList from "./pages/profile/product/GoodsList";
 
 export const {getUser} = createAuthProvider();
 let user = !!getUser();
@@ -45,7 +46,7 @@ ReactDOM.render(
 
                     {seller && <Route exact={true} path={'/profile/seller'} component={ProfileSellerPage}/>}
                     {seller && <Route exact={true} path={'/profile/addProduct'} component={CreateProduct}/>}
-                    {seller && <Route exact={true} path={'/profile/products'} component={ProfilePage}/>}
+                    {seller && <Route exact={true} path={'/profile/products'} component={GoodsList}/>}
 
                     {admin && <Route exact={true} path={'/admin/sellers'} component={Sellers}/>}
 

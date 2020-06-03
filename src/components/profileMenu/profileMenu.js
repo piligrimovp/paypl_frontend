@@ -30,7 +30,7 @@ export default class ProfileMenu extends React.Component {
                     <Link className={'btn btn-outline-primary btn-block'} to={'/profile/seller'}>Страница продавца</Link>
                     <Link className={'btn btn-outline-primary btn-block mt-4'} to={'/profile/addProduct'}>Добавить
                         товар</Link>
-                    <Link className={'btn btn-outline-primary btn-block'} to={'/profile'}>Управление товарами</Link>
+                    <Link className={'btn btn-outline-primary btn-block'} to={'/profile/products'}>Управление товарами</Link>
                 </ButtonToolbar>
             }
             {

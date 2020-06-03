@@ -27,8 +27,9 @@ export default function Orders(props) {
                     </Button>
                 </div>
             </div>
+            {props.orders.length > 0 &&
             <Accordion defaultActiveKey={0} className={'mt-4'}>
-                {props.orders.map((item, index) => {
+                {props.orders && props.orders.map((item, index) => {
                     let sum = 0;
                     item.goods.forEach(element => sum += parseFloat(element.pivot.price_current));
                     return <Card key={index}>
@@ -38,8 +39,10 @@ export default function Orders(props) {
                                 Номер заказа - {item.id}
                             </div>
                             <div className={'col-3 text-center'}>
-                                {item.status.id === 13 && <Alert className={'m-0 p-0'} variant={'success'}>{item.status.name}</Alert>}
-                                {item.status.id === 12 && <Alert className={'m-0 p-0'} variant={'warning'}>{item.status.name}</Alert>}
+                                {item.status.id === 13 &&
+                                <Alert className={'m-0 p-0'} variant={'success'}>{item.status.name}</Alert>}
+                                {item.status.id === 12 &&
+                                <Alert className={'m-0 p-0'} variant={'warning'}>{item.status.name}</Alert>}
                             </div>
                             <div className={'col-3 text-right'}>
                                 Сумма - <b>{sum}</b> руб.
@@ -72,7 +75,7 @@ export default function Orders(props) {
                                             </Col>
                                             <Col>
                                                 <FormGroup>
-                                                    <FormLabel>Цена, руб.</FormLabel>
+                                                    <FormLabel>Цена руб.</FormLabel>
                                                     <FormControl readOnly value={good.pivot.price_current}
                                                                  type={'text'}/>
                                                 </FormGroup>
@@ -100,6 +103,10 @@ export default function Orders(props) {
                     </Card>
                 })}
             </Accordion>
+            }
+            {props.orders.length <= 0 &&
+                <h3>Заказы не найдены</h3>
+            }
         </div>
     );
 }
