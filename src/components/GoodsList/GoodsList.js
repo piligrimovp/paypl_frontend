@@ -57,7 +57,7 @@ export default class GoodsList extends React.Component {
     }
 
     delete = (id, index) => {
-        authFetch(window.HOST + '/goods/destroy/',{
+        authFetch(window.HOST + '/goods/destroy',{
             method: 'POST',
             body: JSON.stringify({
                 id: id
