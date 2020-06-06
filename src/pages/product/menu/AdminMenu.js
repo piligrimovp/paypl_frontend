@@ -24,17 +24,14 @@ export default class AdminMenu extends React.Component {
     render(): React.ReactNode {
         let toolbar = '';
         if (!this.props.product.is_deleted) {
-            toolbar = <ButtonToolbar>
-                <Button type={'button'} variant={'outline-primary btn-block'}>
+            toolbar = <ButtonToolbar className={'mt-2'}>
+                <Button type={'button'} variant={'outline-primary btn-block mt-2'}>
                     Приостановить продажу
                 </Button>
                 <Button type={'button'} variant={'outline-primary btn-block mt-2'}>
                     Страница продавца
                 </Button>
-                <Button type={'button'} variant={'outline-primary btn-block mt-2'}>
-                    Написать продавцу
-                </Button>
-            </ButtonToolbar>
+            </ButtonToolbar>    
         }
         return <>
             <Alerts alerts={this.state.alerts} close={() => this.closeAlert()}/>

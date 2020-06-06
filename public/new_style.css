@@ -7922,7 +7922,7 @@ body, html {
     overflow: hidden;
     display: block;
     position: absolute;
-    width: 100px;
+    width: 100%;
     text-align: center; }
     .goods-small_info span:first-of-type, .goods-medium_info span:first-of-type {
       max-height: 26px;
@@ -7932,8 +7932,11 @@ body, html {
       transform: translate(0%, 50%);
       z-index: 0; }
 
+.goods-medium_info {
+  width: 250px; }
+
 .goods-medium {
-  width: 210px !important;
+  width: 370px !important;
   height: 200px;
   position: relative;
   box-sizing: border-box; }

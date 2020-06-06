@@ -9,6 +9,26 @@ import Alerts from "../../../components/Alerts/Alerts";
 
 export const {getUser, updateUser, authFetch} = createAuthProvider();
 
+const chart = [
+    {name: '01.05.2020', 'Прибыль': 3033},
+    {name:'02.05.2020','Прибыль': 1101},
+    {name:'03.05.2020', 'Прибыль': 2056},
+    {name: '04.05.2020', 'Прибыль': 206},
+    {name: '10.05.2020','Прибыль': 828},
+    {name:'15.05.2020','Прибыль': 2742},
+    {name:'20.05.2020','Прибыль': 2607},
+    {name:'21.05.2020','Прибыль': 0},
+    {name:'26.05.2020','Прибыль': 0},
+    {name:'28.05.2020','Прибыль': 0},
+    {name:'29.05.2020','Прибыль': 3514},
+    {name:'30.05.2020','Прибыль': 2400},
+    {name:'31.05.2020','Прибыль': 4097},
+    {name:'01.06.2020','Прибыль': 4216},
+    {name:'02.06.2020','Прибыль': 473},
+    {name:'03.06.2020','Прибыль': 2713},
+    {name:'04.06.2020','Прибыль': 757}
+]
+
 export default class ProfileSellerPage extends React.Component {
     constructor() {
         super();
@@ -122,7 +142,7 @@ export default class ProfileSellerPage extends React.Component {
                             <LineChart
                                 width={500}
                                 height={300}
-                                data={this.state.chart}
+                                data={chart}
                                 margin={{
                                     top: 5, right: 30, left: 20, bottom: 5,
                                 }}
@@ -136,7 +156,7 @@ export default class ProfileSellerPage extends React.Component {
                             </LineChart>
                         </div>
                         <div className={'row m-0'}>
-                            <Orders orders={this.state.orders} />
+                            {this.state.orders.length > 0 && <Orders orders={this.state.orders} />}
                         </div>
                     </div>
                     <ProfileMenu/>

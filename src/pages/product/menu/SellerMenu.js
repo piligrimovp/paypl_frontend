@@ -24,8 +24,8 @@ export default class SellerMenu extends React.Component {
     render(): React.ReactNode {
         let toolbar = '';
         if (!this.props.product.is_deleted) {
-            toolbar = <ButtonToolbar>
-                <Button type={'button'} variant={'outline-primary btn-block'}>
+            toolbar = <ButtonToolbar className={'mt-2'}>
+                <Button type={'button'} variant={'outline-primary btn-block mt-2'}>
                     Редактировать
                 </Button>
                 <Button type={'button'} variant={'outline-primary btn-block mt-2'}>

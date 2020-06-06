@@ -52,8 +52,15 @@ export default class GoodsList extends React.Component {
         })
     }
 
-    stopSale = () => {
-        authFetch(window.HOST + '/')
+    stopSale = (id,index) => {
+        /*authFetch(window.HOST + '/orders/update',{
+            method: 'POST',
+            body: {
+                status_id: 2,
+                id: id
+            }
+        }).then(response => response.json())
+            .then()*/
     }
 
     delete = (id, index) => {
@@ -134,9 +141,9 @@ export default class GoodsList extends React.Component {
                                     {item.name}
                                 </div>
                                 <div className={'col-3 text-center'}>
-                                    {!item.status.locked &&
-                                    <Alert className={'m-0 p-0'} variant={'success'}>{item.status.name}</Alert>}
-                                    {item.status.locked &&
+                                    {!item.status.locked ?
+                                    <Alert className={'m-0 p-0'} variant={'success'}>{item.status.name}</Alert>
+                                    :
                                     <Alert className={'m-0 p-0'} variant={'warning'}>{item.status.name}</Alert>}
                                 </div>
                                 <div className={'col-3 text-right'}>
@@ -156,8 +163,8 @@ export default class GoodsList extends React.Component {
                                         </Row>
                                         <Row className={'mt-2'}>
                                             <Col className={'d-flex align-items-center justify-content-center '}>
-                                                {item.is_unlimited && <h5>Количество неограничено</h5>}
-                                                {!item.is_unlimited && <h5>Количество - {item.quantity}</h5>}
+                                                {item.is_unlimited ? <h5>Количество неограничено</h5> :
+                                                <h5>Количество - {item.quantity}</h5>}
                                             </Col>
                                             <Col className={'d-flex align-items-center justify-content-center '}>
                                                 <h5>
@@ -180,8 +187,8 @@ export default class GoodsList extends React.Component {
                                                 <Button variant={'info'}>История продаж</Button>
                                             </Col>
                                             <Col className={'d-flex align-items-center justify-content-center '}>
-                                                {item.status.locked && <Button variant={'warning'}>Открыть продажу</Button>}
-                                                {!item.status.locked && <Button variant={'warning'}>Приостановить продажу</Button>}
+                                                {item.status.locked ? <Button variant={'warning'}>Открыть продажу</Button>
+                                                 : <Button variant={'warning'}>Приостановить продажу</Button>}
                                             </Col>
                                             <Col className={'d-flex align-items-center justify-content-center '}>
                                                 <Button variant={'danger'} onClick={() => this.delete(item.id, index)}>Удалить</Button>

@@ -13,6 +13,9 @@ import {
     Row
 } from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {createAuthProvider} from "../../Entity/AuthProvider";
+
+export const {getUser} = createAuthProvider();
 
 export default function Orders(props) {
     return (
@@ -31,7 +34,7 @@ export default function Orders(props) {
             <Accordion defaultActiveKey={0} className={'mt-4'}>
                 {props.orders && props.orders.map((item, index) => {
                     let sum = 0;
-                    item.goods.forEach(element => sum += parseFloat(element.pivot.price_current));
+                    item.goods.forEach(element => sum += parseFloat((element.pivot.price_current * element.pivot.quantity).toFixed(2)));
                     return <Card key={index}>
                         <Accordion.Toggle className={'row justify-content-around'} as={Card.Header} variant="link"
                                           eventKey={index}>
@@ -88,7 +91,7 @@ export default function Orders(props) {
                                                 </FormGroup>
                                             </Col>
                                         </Row>
-                                        {item.status.id === 12 && <Row>
+                                        {(item.status.id === 12 && !getUser().seller) && <Row>
                                             <Col>
                                                 <ButtonToolbar className={'justify-content-end'}>
                                                     <Button variant={'warning'}>Подтвердить получение</Button>
